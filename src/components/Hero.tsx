@@ -66,7 +66,7 @@ const Hero = () => {
               <p className="text-gray-400 text-lg max-w-lg leading-relaxed font-medium mb-10">
                 Founder of{" "}
                 <a 
-                  href="https://blindsplotlab.xyz" 
+                  href="https://blindspotlab.xyz"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white underline decoration-[#4e24cf]/50 underline-offset-4 cursor-pointer hover:text-[#4e24cf] transition-colors"

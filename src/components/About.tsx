@@ -106,7 +106,7 @@ const About = () => {
               <div className="w-full md:w-auto flex flex-col gap-4 items-end">
                  <p className="text-[9px] text-gray-500 uppercase font-bold tracking-[0.2em]">Strategic R&D</p>
                  <div className="flex gap-3">
-                    <a href="https://blindsplotlab.xyz/" target="_blank" className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group">
+                    <a href="https://blindspotlab.xyz" target="_blank" className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group">
                       <Cpu size={20} className="text-gray-400 group-hover:text-[#4e24cf]" />
                     </a>
                     <a href="https://trench.mojeeb.xyz" target="_blank" className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group">
