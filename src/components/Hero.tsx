@@ -85,7 +85,7 @@ const Hero = () => {
                 </button>
 
                 <div className="flex items-center gap-6">
-                  <a href="https://x.com/MojeebHQ" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors transform hover:scale-110">
+                  <a href="https://x.com/mojeebeth" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors transform hover:scale-110">
                     <X size={20} />
                   </a>
                   <a href="https://linkedin.com/in/mojeebhq" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors transform hover:scale-110">

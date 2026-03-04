@@ -4,7 +4,7 @@ const Contact = () => {
   const social = [
     { icon: <Mail />, label: "Email", val: "mojeeb.eth@gmail.com", link: "mailto:mojeeb.eth@gmail.com" },
     { icon: <MessageSquare />, label: "Telegram", val: "@mojeebhq", link: "https://t.me/mojeebhq" },
-    { icon: <X />, label: "X (Twitter)", val: "@MojeebHQ", link: "https://x.com/MojeebHQ" }
+    { icon: <X />, label: "X (Twitter)", val: "@mojeebeth", link: "https://x.com/mojeebeth" }
   ];
 
   return (

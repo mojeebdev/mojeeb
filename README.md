@@ -1,8 +1,8 @@
-# MojeebHQ | Systems • Strategy • Research
+# Mojeeb | Systems • Strategy • Research
 
 > "Longevity is the Ultimate Leverage."
 
-An integrated dashboard for **Systems Architecture** and **Web3 Growth Strategy**. This repository houses the frontend for the [MojeebHQ Portfolio](https://mojeeb.xyz/), built with Next.js, Tailwind CSS, and Shadcn UI.
+An integrated dashboard for **Systems Architecture** and **Web3 Growth Strategy**. This repository houses the frontend for the [Mojeebeth Portfolio](https://mojeeb.xyz/), built with Next.js, Tailwind CSS, and Shadcn UI.
 
 ---
 

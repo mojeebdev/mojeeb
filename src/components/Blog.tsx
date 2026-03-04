@@ -6,7 +6,7 @@ const Blog = () => {
     {
       title: "Read Before It’s Too Late: The 2026 Creator Systems",
       desc: "Talent isn't enough anymore. Exploring the Top 5 Creator Packs required to survive the 2026 barrier to entry.",
-      link: "https://x.com/MojeebHQ/status/2009497216109695467?s=20",
+      link: "https://x.com/BlindspotLab/status/2009497216109695467?s=20",
       span: "md:col-span-2", 
       tag: "Strategy"
     },
@@ -20,14 +20,14 @@ const Blog = () => {
     {
       title: "The 2026 Product Blueprint",
       desc: "Strategic deep dive into the next wave of integrated ecosystem design.",
-      link: "https://x.com/MojeebHQ/status/2009997538267435511?s=20",
+      link: "https:/x.com/BlindspotLab/status/2009997538267435511?s=20",
       span: "md:col-span-1",
       tag: "Research"
     },
     {
       title: "9k Followers & The Mistake After",
       desc: "Growth campaign deconstruction: what reshaped my strategy.",
-      link: "https://x.com/MojeebHQ/status/1971794428789461365",
+      link: "https:/x.com/BlindspotLab/status/1971794428789461365",
       span: "md:col-span-1",
       tag: "Case Study"
     },
