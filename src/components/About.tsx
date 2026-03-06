@@ -18,15 +18,15 @@ const About = () => {
     }, 
     { 
       name: "SOLANA", 
-      logo: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png" 
+      logo: "/solana-sol-logo.png" 
     },
     { 
       name: "POLYGON", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Polygon_logo.svg" 
+      logo: "/polygon-matic-logo.png" 
     },
     { 
       name: "AVALANCHE", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Avalanche_Circle_Red_Logo.svg" 
+      logo: "/avalanche-avax-logo.png" 
     },
   ];
 
