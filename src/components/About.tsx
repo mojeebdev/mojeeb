@@ -10,23 +10,23 @@ const About = () => {
   const ecosystems = [
     { 
       name: "ETHEREUM", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" 
+      logo: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=040" 
     },
     { 
       name: "BASE", 
-      logo: "https://vibestream.cc/base-logo.png?v=024" 
+      logo: "https://vibestream.cc/base-logo.png" 
     }, 
     { 
       name: "SOLANA", 
-      logo: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png" 
+      logo: "https://cryptologos.cc/logos/solana-sol-logo.png?v=040" 
     },
     { 
       name: "POLYGON", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Polygon_logo.svg" 
+      logo: "https://cryptologos.cc/logos/polygon-matic-logo.png?v=040" 
     },
     { 
       name: "AVALANCHE", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Avalanche_Circle_Red_Logo.svg" 
+      logo: "https://cryptologos.cc/logos/avalanche-avax-logo.png?v=040" 
     },
   ];
 
