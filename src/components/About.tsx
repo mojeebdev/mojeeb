@@ -1,32 +1,32 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Eye, ShieldCheck, Gauge, Cpu, 
-  Gamepad2, Utensils, Heart, Code2, 
-  Layout, Rocket, Binary
+  Eye, ShieldCheck, Gauge, ExternalLink, Cpu, 
+  Gamepad2, Utensils, Heart, PenTool, Code2, 
+  LineChart, Layout, Rocket, Binary
 } from "lucide-react";
 
 const About = () => {
   const ecosystems = [
     { 
       name: "ETHEREUM", 
-      logo: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=040" 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" 
     },
     { 
       name: "BASE", 
-      logo: "https://vibestream.cc/base-logo.png" 
+      logo: "https://vibestream.cc/base-logo.png?v=024" 
     }, 
     { 
       name: "SOLANA", 
-      logo: "https://cryptologos.cc/logos/solana-sol-logo.png?v=040" 
+      logo: "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png" 
     },
     { 
       name: "POLYGON", 
-      logo: "https://cryptologos.cc/logos/polygon-matic-logo.png?v=040" 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Polygon_logo.svg" 
     },
     { 
       name: "AVALANCHE", 
-      logo: "https://cryptologos.cc/logos/avalanche-avax-logo.png?v=040" 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Avalanche_Circle_Red_Logo.svg" 
     },
   ];
 
@@ -41,7 +41,7 @@ const About = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           
-          {/* PHILOSOPHY CARD */}
+          {/* PHILOSOPHY CARD  */}
           <Card className="lg:col-span-7 glass-card border-white/5 bg-white/5 p-8 md:p-10">
             <span className="text-[#4e24cf] text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">The Philosophy</span>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
@@ -62,7 +62,7 @@ const About = () => {
             </div>
           </Card>
 
-          {/* CAPABILITIES CARD */}
+          
           <Card className="lg:col-span-5 glass-card border-[#4e24cf]/20 bg-[#4e24cf]/5 p-8 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
@@ -90,7 +90,7 @@ const About = () => {
             </div>
           </Card>
 
-          {/* ACTIVE SYSTEMS CARD */}
+          
           <Card className="lg:col-span-12 glass-card border-white/5 bg-white/5 p-8 relative overflow-hidden transition-all hover:border-[#4e24cf]/20">
             <div className="flex flex-col md:flex-row gap-8 justify-between items-end">
               <div className="w-full md:w-1/2">
@@ -98,35 +98,35 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-6 text-white tracking-tight">Active Systems</h3>
                 
                 <div className="space-y-6">
-                  <div className="group block cursor-pointer">
+                  <a href="https://whate.online" target="_blank" className="group block">
                     <div className="flex items-center gap-2 text-[10px] font-bold text-[#4e24cf] uppercase tracking-[0.2em] mb-1">
                       <Utensils size={14} /> Whate Engine
                     </div>
                     <p className="text-[12px] text-white/70 group-hover:text-white transition-colors">
                       PWA solving decision fatigue with <span className="text-[#4e24cf]">10k+ food items</span> and persona-based logic.
                     </p>
-                  </div>
+                  </a>
 
-                  <div className="group block cursor-pointer">
+                  <a href="https://dearly.icu" target="_blank" className="group block">
                     <div className="flex items-center gap-2 text-[10px] font-bold text-[#4e24cf] uppercase tracking-[0.2em] mb-1">
                       <Heart size={14} /> Dearly Personalizer
                     </div>
                     <p className="text-[12px] text-white/70 group-hover:text-white transition-colors">
                       Human-centric greeting system converting <span className="text-[#4e24cf] font-bold">attributes into assets</span>.
                     </p>
-                  </div>
+                  </a>
                 </div>
               </div>
 
               <div className="w-full md:w-auto flex flex-col gap-4 items-end">
                  <p className="text-[9px] text-gray-500 uppercase font-bold tracking-[0.2em]">Strategic R&D</p>
                  <div className="flex gap-3">
-                    <div className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group cursor-pointer">
+                    <a href="https://blindspotlab.xyz/audit" target="_blank" className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group">
                       <Cpu size={20} className="text-gray-400 group-hover:text-[#4e24cf]" />
-                    </div>
-                    <div className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group cursor-pointer">
+                    </a>
+                    <a href="https://trench.mojeeb.xyz" target="_blank" className="bg-white/5 hover:bg-[#4e24cf]/20 p-3 rounded-xl transition-colors border border-white/10 group">
                       <Gamepad2 size={20} className="text-gray-400 group-hover:text-[#4e24cf]" />
-                    </div>
+                    </a>
                  </div>
               </div>
             </div>
@@ -134,14 +134,14 @@ const About = () => {
           </Card>
 
           
-          <div className="lg:col-span-12 flex flex-wrap justify-between items-center bg-white/5 p-6 rounded-3xl border border-white/5 mt-2 gap-4">
+          <div className="lg:col-span-12 flex flex-wrap justify-between items-center bg-white/5 p-6 rounded-3xl border border-white/5 mt-2">
             {ecosystems.map((eco) => (
               <div key={eco.name} className="flex items-center gap-3 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer group">
-                <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 flex items-center justify-center">
                   <img 
                     src={eco.logo} 
                     alt={eco.name} 
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-full object-contain" 
                   />
                 </div>
                 <span className="text-[9px] font-bold tracking-widest text-white uppercase group-hover:text-[#4e24cf] transition-colors">
