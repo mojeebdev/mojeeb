@@ -7,7 +7,7 @@ const ProjectVault = () => {
       tagline: "Strategy Intelligence",
       description: "A Web3 AI Auditor designed to identify structural roadmap failures. Turning blind spots into leverage.",
       tech: ["Gemini AI", "Vercel", "Strategy"],
-      link: "https://blindspotlab.xyz",
+      link: "https://blindspotlab.xyz/audit",
       icon: <Zap className="text-[#4e24cf]" size={20} />,
       size: "md:col-span-7" 
     },

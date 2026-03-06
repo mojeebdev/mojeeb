@@ -24,13 +24,13 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           
-          {/* PRIMARY IDENTITY CARD */}
+          
           <div className="md:col-span-8 bg-[#0a0a0a] border border-white/10 p-8 md:p-12 rounded-[2.5rem] flex flex-col justify-center min-h-[520px] relative overflow-hidden group">
             
-            {/* GHOST LOGO BACKGROUND */}
+            
             <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 transition-all duration-500 pointer-events-none rotate-12 group-hover:rotate-0">
               <img 
-                src="/logo.png" 
+                src="/mojeeb-2026-headshot.jpg" 
                 alt="Mojeeb Titilayo Logo" 
                 className="w-[320px] h-[320px] object-contain grayscale"
               />
@@ -49,7 +49,7 @@ const Hero = () => {
                 <span className="text-gray-500 italic">TITILAYO.</span>
               </h1>
 
-              {/* RESOURCE STACK / CAPABILITIES GRID */}
+              
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-xl">
                 {capabilities.map((cap) => (
                   <div key={cap.label} className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl group/item hover:border-[#4e24cf]/50 transition-colors">
@@ -117,7 +117,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* HEADSHOT CARD */}
+          
           <div className="md:col-span-4 h-[450px] md:h-auto bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] overflow-hidden relative group">
             <img 
               src="/mojeeb-2026-headshot.jpg" 

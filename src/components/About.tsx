@@ -9,7 +9,7 @@ import {
 const About = () => {
   const ecosystems = [
     { name: "ETHEREUM", logo: "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=024" },
-    { name: "BASE", logo: "" }, 
+    { name: "BASE", logo: "https://vibestream.cc/base-logo.png?v=024" }, 
     { name: "SOLANA", logo: "https://cryptologos.cc/logos/solana-sol-logo.svg?v=024" },
     { name: "POLYGON", logo: "https://cryptologos.cc/logos/polygon-matic-logo.svg?v=024" },
     { name: "AVALANCHE", logo: "https://cryptologos.cc/logos/avalanche-avax-logo.svg?v=024" },
@@ -47,7 +47,7 @@ const About = () => {
             </div>
           </Card>
 
-          {/* CAPABILITIES CARD */}
+          
           <Card className="lg:col-span-5 glass-card border-[#4e24cf]/20 bg-[#4e24cf]/5 p-8 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
@@ -75,7 +75,7 @@ const About = () => {
             </div>
           </Card>
 
-          {/* ACTIVE BUILDS TERMINAL */}
+          
           <Card className="lg:col-span-12 glass-card border-white/5 bg-white/5 p-8 relative overflow-hidden transition-all hover:border-[#4e24cf]/20">
             <div className="flex flex-col md:flex-row gap-8 justify-between items-end">
               <div className="w-full md:w-1/2">
@@ -118,7 +118,7 @@ const About = () => {
             <Gauge size={120} className="absolute -right-8 -bottom-8 text-[#4e24cf] opacity-[0.03] pointer-events-none" />
           </Card>
 
-          {/* ECOSYSTEMS BAR */}
+          
           <div className="lg:col-span-12 flex flex-wrap justify-between items-center bg-white/5 p-6 rounded-3xl border border-white/5 mt-2">
             {ecosystems.map((eco) => (
               <div key={eco.name} className="flex items-center gap-3 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer group">
