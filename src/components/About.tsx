@@ -14,7 +14,7 @@ const About = () => {
     },
     { 
       name: "BASE", 
-      logo: "https://vibestream.cc/base-logo.png?v=024" 
+      logo: "/base-logo.png" 
     }, 
     { 
       name: "SOLANA", 
