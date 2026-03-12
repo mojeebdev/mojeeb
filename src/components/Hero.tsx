@@ -117,7 +117,7 @@ const Hero = () => {
                   href="/ai"
                   className="group bg-white/5 border border-white/10 hover:border-[#4e24cf]/50 text-white/60 hover:text-white px-7 py-3.5 rounded-full font-black text-[11px] uppercase tracking-[0.2em] transition-all flex items-center gap-2"
                 >
-                  <Zap size={11} className="text-[#4e24cf]" /> Vibe with my AI
+                  <Zap size={11} className="text-[#4e24cf]" /> Vibe Portfolio
                 </a>
 
                 {/* Social icons */}
@@ -173,7 +173,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* AI CTA card */}
+            {/* Vibe Portfolio CTA card */}
             <a href="/ai"
               className="group bg-[#4e24cf]/10 border border-[#4e24cf]/25 hover:border-[#4e24cf]/60 hover:bg-[#4e24cf]/15 rounded-[2rem] p-6 transition-all flex flex-col gap-3">
               <div className="flex items-center justify-between">
@@ -181,13 +181,13 @@ const Hero = () => {
                 <Zap size={14} className="text-[#4e24cf] group-hover:scale-125 transition-transform" />
               </div>
               <p className="text-white font-black text-base uppercase tracking-tight leading-tight">
-                Vibe with<br />my AI
+                Vibe Coder<br />Portfolio
               </p>
               <p className="text-white/40 text-[11px] leading-relaxed">
-                Ask anything — strategy, Web3, building, growth. Powered by my knowledge base.
+                Everything I've built and shipped with AI — tools, systems, and works in progress.
               </p>
               <div className="flex items-center gap-2 text-[#4e24cf] text-[10px] font-bold uppercase tracking-widest mt-1 group-hover:gap-3 transition-all">
-                Open AI <ArrowRight size={10} />
+                See the Builds <ArrowRight size={10} />
               </div>
             </a>
 

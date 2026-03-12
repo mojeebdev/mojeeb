@@ -1,4 +1,5 @@
-import { ExternalLink, Zap, Utensils, Heart, Radio, Terminal, Unlink, TrendingUp, ShieldCheck } from "lucide-react";
+import { ExternalLink, Zap, Utensils, Heart, Radio, Unlink, TrendingUp, ShieldCheck } from "lucide-react";
+
 const projects = [
   {
     title: "Blindspot Lab",
@@ -10,6 +11,8 @@ const projects = [
     icon: <Zap size={18} />,
     size: "md:col-span-7",
     accent: true,
+    hot: false,
+    stat: undefined as { label: string; value: string } | undefined,
   },
   {
     title: "Xunfollow",
@@ -20,31 +23,36 @@ const projects = [
     link: "https://xunfollow.xyz",
     icon: <Unlink size={18} />,
     size: "md:col-span-5",
+    accent: false,
     hot: true,
     stat: { label: "Launch Day", value: "1,948 views" },
   },
   {
     title: "Vibestream",
-    tagline: "Discovery Layer",
+    tagline: "Vibe-Built Product Index",
     description:
-      "Where the next unicorn gets discovered. Curated encyclopedia for VC-backed Vibe Coders with on-chain verified founder profiles.",
+      "Where the next unicorn gets discovered. The go-to index for AI-built and vibe-coded products — with on-chain verified founder profiles and VC discovery tooling.",
     tech: ["Next.js", "Prisma", "Web3"],
     link: "https://vibestream.cc",
     icon: <Radio size={18} />,
     size: "md:col-span-4",
+    accent: false,
+    hot: false,
+    stat: undefined as { label: string; value: string } | undefined,
   },
   {
-  title: "VibeCheck",
-  tagline: "Builder Intelligence · Blindspot Lab",
-  description:
-    "Audit your builder prompt and get ranked — Senior, Mid, or Junior. Powered by Gemini 2.5 Flash-Lite. Know your level before the market tells you.",
-  tech: ["Next.js", "Gemini 2.5", "Upstash Redis", "Vercel"],
-  link: "https://vibe.blindspotlab.xyz",
-  icon: <ShieldCheck size={18} />,
-  size: "md:col-span-4",
-  hot: true,
+    title: "VibeCheck",
+    tagline: "Builder Intelligence · Blindspot Lab",
+    description:
+      "Audit your builder prompt and get ranked — Senior, Mid, or Junior. Powered by Gemini 2.5 Flash-Lite. Know your level before the market tells you.",
+    tech: ["Next.js", "Gemini 2.5", "Upstash Redis", "Vercel"],
+    link: "https://vibe.blindspotlab.xyz",
+    icon: <ShieldCheck size={18} />,
+    size: "md:col-span-4",
+    accent: false,
+    hot: true,
+    stat: undefined as { label: string; value: string } | undefined,
   },
-
   {
     title: "Whate",
     tagline: "Utility Engine",
@@ -54,6 +62,9 @@ const projects = [
     link: "https://whate.online",
     icon: <Utensils size={18} />,
     size: "md:col-span-4",
+    accent: false,
+    hot: false,
+    stat: undefined as { label: string; value: string } | undefined,
   },
   {
     title: "Dearly",
@@ -64,18 +75,9 @@ const projects = [
     link: "https://dearly.icu",
     icon: <Heart size={18} />,
     size: "md:col-span-4",
-  },
-  {
-    title: "Vibe Coder AI",
-    tagline: "AI Assistant · /ai",
-    description:
-      "Ask me anything — strategy, Web3, growth, or building. My personal AI, trained on my knowledge base and how I think.",
-    tech: ["Claude AI", "Anthropic", "Strategy"],
-    link: "/ai",
-    icon: <Terminal size={18} />,
-    size: "md:col-span-12",
-    wide: true,
-    cta: "Open AI →",
+    accent: false,
+    hot: false,
+    stat: undefined as { label: string; value: string } | undefined,
   },
 ];
 
@@ -105,9 +107,8 @@ const ProjectVault = () => {
           {projects.map((p, i) => (
             <div
               key={i}
-              className={`${p.size} group relative bg-[#080808] border rounded-[1.75rem] p-8 transition-all duration-300 overflow-hidden
+              className={`${p.size} group relative bg-[#080808] border rounded-[1.75rem] p-8 transition-all duration-300 overflow-hidden flex flex-col
                 ${p.accent ? "border-[#4e24cf]/30 hover:border-[#4e24cf]/60" : "border-white/[0.06] hover:border-[#4e24cf]/30"}
-                ${p.wide ? "flex flex-col md:flex-row items-start md:items-center gap-8" : "flex flex-col"}
               `}
             >
               {/* Glow on accent cards */}
@@ -124,20 +125,18 @@ const ProjectVault = () => {
               )}
 
               {/* Icon + external link */}
-              <div className={`flex items-start justify-between mb-5 ${p.wide ? "mb-0 shrink-0" : ""}`}>
+              <div className="flex items-start justify-between mb-5">
                 <div className="w-10 h-10 rounded-xl bg-[#4e24cf]/10 border border-[#4e24cf]/20 flex items-center justify-center text-[#4e24cf]">
                   {p.icon}
                 </div>
-                {!p.wide && (
-                  <a href={p.link} target="_blank" rel="noopener noreferrer"
-                    className="text-white/15 hover:text-white transition-colors group-hover:text-white/40">
-                    <ExternalLink size={15} />
-                  </a>
-                )}
+                <a href={p.link} target="_blank" rel="noopener noreferrer"
+                  className="text-white/15 hover:text-white transition-colors group-hover:text-white/40">
+                  <ExternalLink size={15} />
+                </a>
               </div>
 
               {/* Content */}
-              <div className={`flex-1 ${p.wide ? "" : "flex flex-col flex-1"}`}>
+              <div className="flex-1 flex flex-col">
                 <div className="mb-3">
                   <p className="text-[9px] font-black text-[#4e24cf] uppercase tracking-[0.3em] mb-1">{p.tagline}</p>
                   <h3 className="text-xl font-black text-white uppercase tracking-tight leading-none">{p.title}</h3>
@@ -153,20 +152,12 @@ const ProjectVault = () => {
                   </div>
                 )}
 
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tech.map((t) => (
-                      <span key={t} className="text-[8px] font-bold text-white/25 border border-white/[0.08] px-2.5 py-1 rounded-full uppercase tracking-widest">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  {p.cta && (
-                    <a href={p.link}
-                      className="text-[#4e24cf] text-[11px] font-black uppercase tracking-widest hover:gap-3 flex items-center gap-2 transition-all">
-                      {p.cta}
-                    </a>
-                  )}
+                <div className="flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <span key={t} className="text-[8px] font-bold text-white/25 border border-white/[0.08] px-2.5 py-1 rounded-full uppercase tracking-widest">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

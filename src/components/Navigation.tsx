@@ -90,7 +90,7 @@ const Navigation = () => {
             {/* AI CTA — prominent */}
             <a href="/ai"
               className="flex items-center gap-1.5 bg-[#4e24cf] hover:bg-[#6d3cf7] text-white px-4 py-2 rounded-full transition-all text-[9px] font-black uppercase tracking-[0.15em] shadow-[0_0_15px_rgba(78,36,207,0.4)]">
-              <Zap size={9} /> AI
+              <Zap size={9} /> Builds
             </a>
           </div>
         </div>
@@ -130,7 +130,7 @@ const Navigation = () => {
 
         <a href="/ai" onClick={() => setIsOpen(false)}
           className="flex items-center gap-3 text-2xl font-black uppercase text-[#4e24cf] hover:text-[#9d6fff] transition-colors mt-2">
-          <Zap size={20} /> Vibe AI
+          <Zap size={20} /> Vibe Builds
         </a>
 
         <p className="absolute bottom-10 text-[9px] text-white/10 font-mono uppercase tracking-[0.5em]">
