@@ -19,8 +19,8 @@ const App = () => (
         <div className="magic-blur -top-40 -left-40" />
         <div className="magic-blur -bottom-40 -right-40" />
         
-        {/* New artistic elements - layered for depth */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        {/* New artistic elements - more visible grid */}
+        <div className="absolute inset-0 bg-grid-pattern-medium opacity-60" />
         <div className="absolute inset-0 bg-noise opacity-30" />
         <div className="absolute inset-0 bg-scanlines opacity-20" />
         
@@ -29,8 +29,8 @@ const App = () => (
         <div className="bg-blob-2 -bottom-20 -left-20" />
         <div className="bg-blob-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         
-        {/* Diagonal lines accent */}
-        <div className="absolute inset-0 bg-diagonal-lines opacity-30" />
+        {/* Optional: Add dots for extra texture */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-30 mix-blend-overlay" />
       </div>
       
       <Toaster />
