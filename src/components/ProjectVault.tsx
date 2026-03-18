@@ -15,19 +15,6 @@ const projects = [
     stat: undefined as { label: string; value: string } | undefined,
   },
   {
-    title: "Xunfollow",
-    tagline: "Vibe Coded Tool",
-    description:
-      "Upload your X archive → see who doesn't follow back → download a personalized unfollow script. 100% local, zero data leaves your browser.",
-    tech: ["Puppeteer", "Vanilla JS", "Privacy-First"],
-    link: "https://xunfollow.xyz",
-    icon: <Unlink size={18} />,
-    size: "md:col-span-5",
-    accent: false,
-    hot: true,
-    stat: { label: "Launch Day", value: "1,948 views" },
-  },
-  {
     title: "ArcaPush",
     tagline: "Vibe-Built Product Index",
     description:
@@ -38,6 +25,19 @@ const projects = [
     size: "md:col-span-4",
     accent: false,
     hot: false,
+    stat: undefined,
+  },
+  {
+    title: "AcraPrompt",
+    tagline: "Prompt Engineering Tool",
+    description:
+      "The ultimate tool for crafting and refining AI prompts. Built for developers and content creators who want to maximize their AI output.",
+    tech: ["Next.js", "Gemini 2.5", "Vercel"],
+    link: "https://acraprompt.arcapush.com",
+    icon: <Terminal size={18} />,
+    size: "md:col-span-4",
+    accent: false,
+    hot: true,
     stat: undefined,
   },
   {
@@ -54,17 +54,17 @@ const projects = [
     stat: undefined,
   },
   {
-    title: "AcraPrompt",
-    tagline: "Prompt Engineering Tool",
+    title: "Xunfollow",
+    tagline: "Vibe Coded Tool",
     description:
-      "The ultimate tool for crafting and refining AI prompts. Built for developers and content creators who want to maximize their AI output.",
-    tech: ["Next.js", "Gemini 2.5", "Vercel"],
-    link: "https://acraprompt.arcapush.com",
-    icon: <Terminal size={18} />,
-    size: "md:col-span-4",
+      "Upload your X archive → see who doesn't follow back → download a personalized unfollow script. 100% local, zero data leaves your browser.",
+    tech: ["Puppeteer", "Vanilla JS", "Privacy-First"],
+    link: "https://xunfollow.xyz",
+    icon: <Unlink size={18} />,
+    size: "md:col-span-5",
     accent: false,
     hot: true,
-    stat: undefined,
+    stat: { label: "Launch Day", value: "1,948 views" },
   },
   {
     title: "Whate",

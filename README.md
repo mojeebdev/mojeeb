@@ -1,4 +1,4 @@
-# Mojeeb | Systems • Strategy • Research
+# Mojeeb | Systems • Strategy • Research • AI
 
 > "Longevity is the Ultimate Leverage."
 

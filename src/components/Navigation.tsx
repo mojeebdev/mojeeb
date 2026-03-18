@@ -10,8 +10,8 @@ const Navigation = () => {
     { id: "hero", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
     { id: "work", label: "Work", icon: Zap },
-    { id: "experience", label: "XP", icon: Briefcase },
     { id: "blog", label: "Blog", icon: PenTool },
+    { id: "experience", label: "XP", icon: Briefcase },
     { id: "contact", label: "Contact", icon: Mail },
   ], []);
 

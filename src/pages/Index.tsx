@@ -89,7 +89,8 @@ const Index = () => {
                 </span>
               </div>
               <p className="text-[10px] text-gray-400 uppercase tracking-[0.4em] font-bold">
-                Systems • Strategy • Research
+                Systems • Strategy • Research • Design • AI <br />
+                mojeeb.xyz All rights reserved © 2026  
               </p>
             </div>
 

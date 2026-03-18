@@ -12,26 +12,56 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* Simple background div with direct style attribute */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0,
+          pointerEvents: 'none',
+          backgroundImage: `
+            linear-gradient(to right, #5B2BFF 1px, transparent 1px),
+            linear-gradient(to bottom, #5B2BFF 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          opacity: 0.15
+        }}
+      />
       
-      {/* Background Art Layer - Fixed to entire screen */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Existing magic blurs */}
-        <div className="magic-blur -top-40 -left-40" />
-        <div className="magic-blur -bottom-40 -right-40" />
-        
-        {/* New artistic elements - more visible grid */}
-        <div className="absolute inset-0 bg-grid-pattern-medium opacity-60" />
-        <div className="absolute inset-0 bg-noise opacity-30" />
-        <div className="absolute inset-0 bg-scanlines opacity-20" />
-        
-        {/* Abstract blobs */}
-        <div className="bg-blob-1 -top-20 -right-20" />
-        <div className="bg-blob-2 -bottom-20 -left-20" />
-        <div className="bg-blob-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        
-        {/* Optional: Add dots for extra texture */}
-        <div className="absolute inset-0 bg-dot-pattern opacity-30 mix-blend-overlay" />
-      </div>
+      {/* Magic blurs as separate divs */}
+      <div
+        style={{
+          position: 'fixed',
+          top: -160,
+          left: -160,
+          width: '400px',
+          height: '400px',
+          background: '#5B2BFF',
+          opacity: 0.03,
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
+      <div
+        style={{
+          position: 'fixed',
+          bottom: -160,
+          right: -160,
+          width: '400px',
+          height: '400px',
+          background: '#5B2BFF',
+          opacity: 0.03,
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
       
       <Toaster />
       <Sonner />

@@ -784,9 +784,21 @@ export default function AI() {
                 <span className="tag powered">AI-Powered</span>
               </div>
             </div>
+              
+              <div className="project-card">
+              <div className="project-num">04</div>
+              <div className="project-name">Master Prompt Generator</div>
+              <a href="https://arcaprompt.arcapush.com" className="project-url" target="_blank" rel="noreferrer">https://arcaprompt.arcapush.com ↗</a>
+              <p className="project-desc">Evaluates prompts and assigns capability rankings — Senior, Mid, or Junior — to help users understand and improve their prompt effectiveness in real time.</p>
+              <div className="project-tags">
+                <span className="tag">Prompt Engineering</span>
+                <span className="tag">Capability Ranking</span>
+                <span className="tag powered">AI-Powered</span>
+              </div>
+            </div>
 
             <div className="project-card">
-              <div className="project-num">04</div>
+              <div className="project-num">05</div>
               <div className="project-name">Dearly</div>
               <a href="https://dearly.icu" className="project-url" target="_blank" rel="noreferrer">dearly.icu ↗</a>
               <p className="project-desc">Gemini-powered system that generates deeply personalized messages using AI. Built around emotional intelligence and contextual message crafting.</p>
@@ -798,7 +810,7 @@ export default function AI() {
             </div>
 
             <div className="project-card">
-              <div className="project-num">05</div>
+              <div className="project-num">06</div>
               <div className="project-name">SaaS Intelligence Lab</div>
               <a href="https://saas.mojeeb.xyz" className="project-url" target="_blank" rel="noreferrer">saas.mojeeb.xyz ↗</a>
               <p className="project-desc">Research environment that analyzes user complaints and founder feedback to surface product blindspots and generate support intelligence.</p>

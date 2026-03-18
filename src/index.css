@@ -201,7 +201,7 @@
   animation-play-state: paused;
 }
 
-/* ===== ARTISTIC BACKGROUND PATTERNS - IMPROVED VISIBILITY ===== */
+/* ===== ARTISTIC BACKGROUND PATTERNS ===== */
 
 /* Subtle Grid - Default */
 .bg-grid-pattern {
@@ -371,4 +371,18 @@
     transparent 10px,
     transparent 19px
   );
+}
+
+/* Test grid - bright red for debugging */
+.bg-grid-test {
+  background-size: 40px 40px !important;
+  background-image: 
+    linear-gradient(to right, red 1px, transparent 1px),
+    linear-gradient(to bottom, red 1px, transparent 1px) !important;
+  opacity: 1 !important;
+}
+
+/* Force any background to show */
+.debug-bg {
+  background-color: rgba(255, 0, 0, 0.3) !important;
 }
