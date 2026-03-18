@@ -1,7 +1,7 @@
 import { Mail, MessageSquare, X, Network, TrendingUp, Users, ArrowRight, Zap } from "lucide-react";
 
 const social = [
-  { icon: <Mail size={16} />, label: "Email", val: "mojeeb.eth@gmail.com", link: "mailto:mojeeb.eth@gmail.com" },
+  { icon: <Mail size={16} />, label: "Email", val: "hello@mojeeb.xyz", link: "mailto:hello@mojeeb.xyz" },
   { icon: <MessageSquare size={16} />, label: "Telegram", val: "@mojeebhq", link: "https://t.me/mojeebhq" },
   { icon: <X size={16} />, label: "X (Twitter)", val: "@mojeebeth", link: "https://x.com/mojeebeth" },
 ];
@@ -30,7 +30,7 @@ const Contact = () => {
               </h2>
             </div>
             <a
-              href="mailto:mojeeb.eth@gmail.com"
+              href="mailto:hello@mojeeb.xyz"
               className="group shrink-0 bg-white text-[#5B2BFF] px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-[0.2em] hover:bg-white/90 transition-all flex items-center gap-3 shadow-lg hover:scale-105 active:scale-95"
             >
               Hire Me <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
