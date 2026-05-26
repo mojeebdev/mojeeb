@@ -25,7 +25,7 @@ export const builds: Build[] = [
     problem: "Building is hard. Marketing is harder.",
     idea: "A lot of people are building, but what they struggle with is visibility. Marketing will be the core battle in the years ahead — because everybody can build now. Arcapush solves the distribution problem before it starts.",
     stats: [
-      { label: "Indexed", value: "61 Products" },
+      { label: "Indexed", value: "62 Products" },
       { label: "Traffic",  value: "1.5k / mo"   },
     ],
     tech: ["Web3", "Supabase", "Prisma", "Solidity", "Base", "Vercel"],
