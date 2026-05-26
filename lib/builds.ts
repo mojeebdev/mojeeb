@@ -1,0 +1,276 @@
+export type BuildStatus = "live" | "building" | "paused" | "hold" | "hackathon";
+
+export interface Build {
+  id: string;
+  name: string;
+  url: string;
+  tagline: string;
+  problem?: string;
+  idea?: string;
+  stats?: { label: string; value: string }[];
+  tech: string[];
+  status: BuildStatus;
+  xHandle?: string;
+  featured?: boolean;
+  logo?: string | null;
+}
+
+export const builds: Build[] = [
+  
+  {
+    id: "arcapush",
+    name: "Arcapush",
+    url: "https://arcapush.com",
+    tagline: "The registry for builds who ship",
+    problem: "Building is hard. Marketing is harder.",
+    idea: "A lot of people are building, but what they struggle with is visibility. Marketing will be the core battle in the years ahead — because everybody can build now. Arcapush solves the distribution problem before it starts.",
+    stats: [
+      { label: "Indexed", value: "61 Products" },
+      { label: "Traffic",  value: "1.5k / mo"   },
+    ],
+    tech: ["Web3", "Supabase", "Prisma", "Solidity", "Base", "Vercel"],
+    status: "live",
+    xHandle: "@Arcapush",
+    featured: true,
+    logo: "https://arcapush.com/arcapush-logo.png",
+  },
+  {
+    id: "whate",
+    name: "Whate",
+    url: "https://whate.online",
+    tagline: "Zero Decision Meal Intelligence",
+    problem: "Thinking about what to eat takes minutes — or hours.",
+    idea: "I kept seeing people complain about what to eat, tired of the same meals for days. Decision fatigue is real. So I built something that takes the thinking out of it — you don't decide what to eat anymore. You just start eating.",
+    stats: [
+      { label: "Meals",   value: "10,000+" },
+      { label: "Traffic", value: "10+ / mo" },
+    ],
+    tech: ["Next.js", "Supabase", "PWA", "Vercel"],
+    status: "live",
+    xHandle: "@Whateonline",
+    featured: true,
+    logo: "https://whate.online/icons/whate-icon-180.png",
+  },
+  {
+    id: "pullchain",
+    name: "PullChain",
+    url: "https://pullchain.fun",
+    tagline: "Pull a Block, Master Crypto",
+    problem: "Crypto adoption is growing. Proper knowledge isn't.",
+    idea: "Newbies lose money to memecoins and hacks because no one teaches them the real stuff. Why can't people learn crypto and have fun at the same time — not by reading a thread, just pull a block and learn. Gamified Web3 education on Base.",
+    stats: [
+      { label: "Players", value: "14"      },
+      { label: "Traffic", value: "400 / mo" },
+    ],
+    tech: ["Next.js 15", "Supabase", "Prisma", "Privy", "Wagmi", "Base"],
+    status: "live",
+    featured: true,
+    logo: "https://pullchain.fun/logo-mark.png",
+  },
+  {
+    id: "angelvow",
+    name: "AngelVow",
+    url: "https://angelvow.xyz",
+    tagline: "Wish, Give, and Fulfil",
+    problem: "There's a Web2 wishlist platform. There's none for Web3.",
+    idea: "People can list their wishlists and get help onchain. Turning wishes into on-chain reality — a charity vault platform where creators fund vaults, friends give USDC, and winners are chosen with transparent on-chain logic.",
+    stats: [
+      { label: "Traffic", value: "500 / mo"    },
+      { label: "Chain",   value: "Base Mainnet" },
+    ],
+    tech: ["Next.js", "Solidity", "Wagmi", "USDC", "Base"],
+    status: "live",
+    featured: true,
+    logo: "https://angelvow.xyz/icon",
+  },
+  {
+    id: "dearly",
+    name: "Dearly",
+    url: "https://dearly.icu",
+    tagline: "Beautiful Personal Greetings",
+    problem: "People don't know how to express love. So they send a generic message.",
+    idea: "Why not build something you can send to your loved ones that isn't generic — something authentic and personal. With a persona filter, Dearly gets to know the person you're sending to before curating the messages for you.",
+    stats: [
+      { label: "Pages Built", value: "67"  },
+      { label: "Traffic",     value: "100 / mo"  },
+    ],
+    tech: ["Next.js", "Gemini", "Supabase", "TypeScript"],
+    status: "live",
+    featured: true,
+    logo: "https://dearly.icu/icon_dearly/android-chrome-192x192.png",
+  },
+  {
+    id: "roasturl",
+    name: "RoastURL",
+    url: "https://roasturl.xyz",
+    tagline: "Precision AI Startup Audit",
+    problem: "You're building. But nobody's being honest about your build.",
+    idea: "Built for builders who don't have anyone to give them real, brutal feedback. Paste your URL, get an AI audit that doesn't sugarcoat — no fluff, just what's broken and what to fix.",
+    stats: [
+      { label: "Audits",  value: "10+"     },
+      { label: "Traffic", value: "200 / mo" },
+    ],
+    tech: ["Next.js", "Gemini", "Supabase", "TypeScript"],
+    status: "building",
+    featured: true,
+    logo: null,
+  },
+  {
+    id: "certstack",
+    name: "CertStack",
+    url: "https://certstack.vercel.app",
+    tagline: "A vault for your verified credentials",
+    tech: ["Next.js", "Supabase", "Prisma", "Puppeteer", "Html2Canvas"],
+    status: "live",
+    logo: "https://certstack.vercel.app/logo-meta.png",
+  },
+
+  
+  {
+    id: "arcaprompt",
+    name: "ArcaPrompt",
+    url: "https://arcaprompt.arcapush.com",
+    tagline: "Build better, Prompt Smarter",
+    tech: ["Next.js", "Gemini", "TypeScript", "Vercel"],
+    status: "live",
+    logo: "https://arcaprompt.arcapush.com/arcaprompt-logo.png",
+  },
+  {
+    id: "promptrank",
+    name: "PromptRank",
+    url: "https://promptrank.arcapush.com",
+    tagline: "Submit your prompt. Get graded. No mercy.",
+    tech: ["Next.js", "Gemini 2.5", "TypeScript", "Vercel"],
+    status: "live",
+    logo: "https://promptrank.arcapush.com/promptrank-logo.png",
+  },
+  {
+    id: "xunfollow",
+    name: "XUnfollow",
+    url: "https://xunfollow.xyz",
+    tagline: "Unfollow Script Generator",
+    tech: ["HTML", "Puppeteer"],
+    status: "live",
+    logo: null,
+  },
+  {
+    id: "firsttx",
+    name: "FirstTx",
+    url: "https://firsttx.xyz",
+    tagline: "Relive your first on-chain moment.",
+    tech: ["Next.js", "Supabase", "Alchemy", "Etherscan"],
+    status: "live",
+    logo: "https://firsttx.xyz/android-chrome-192x192.png",
+  },
+  {
+    id: "commitcar",
+    name: "CommitCar",
+    url: "https://commitcar.vercel.app",
+    tagline: "Your commits drive a car",
+    tech: ["Next.js 15", "Wagmi", "Viem", "Base"],
+    status: "live",
+    logo: null,
+  },
+  {
+    id: "peerfix",
+    name: "PeerFix",
+    url: "https://peerfix.dev",
+    tagline: "Builders helping Builders",
+    tech: ["Next.js", "Supabase", "Wagmi", "Base"],
+    status: "live",
+    logo: "https://peerfix.dev/apple-touch-icon.png",
+  },
+  {
+    id: "nullpay",
+    name: "NullPay",
+    url: "https://nullpay.blindspotlab.xyz",
+    tagline: "Send money. Leave no Trace.",
+    tech: ["Next.js", "Starknet", "Privy"],
+    status: "hackathon",
+    logo: null,
+  },
+  {
+    id: "ens9",
+    name: "ENS9",
+    url: "https://ens9.vercel.app",
+    tagline: "ENS 9th Anniversary — When did you join?",
+    tech: ["HTML", "Web3", "ENS"],
+    status: "live",
+    logo: null,
+  },
+  {
+    id: "sitehook",
+    name: "SiteHook",
+    url: "https://sitehook.blindspotlab.xyz",
+    tagline: "SaaS Work Automation",
+    tech: ["Next.js", "Claude API", "Google Places API"],
+    status: "paused",
+    logo: null,
+  },
+  {
+    id: "syncsurge",
+    name: "SyncSurge",
+    url: "https://syncsurge.xyz",
+    tagline: "Creator accountability platform",
+    tech: ["Next.js", "Supabase", "Vercel"],
+    status: "paused",
+    logo: null,
+  },
+  {
+    id: "splitstack",
+    name: "SplitStack",
+    url: "https://splitstack.blindspotlab.xyz",
+    tagline: "Money Allocation Tool",
+    tech: ["HTML", "GitHub", "Vercel"],
+    status: "live",
+    logo: null,
+  },
+  {
+    id: "blindspotlab",
+    name: "BlindspotLab",
+    url: "https://blindspotlab.xyz",
+    tagline: "A studio for the nearly-built.",
+    tech: ["Next.js", "Gemini", "TypeScript", "Vercel"],
+    status: "live",
+    logo: null,
+  },
+  {
+    id: "directorx",
+    name: "Director-X",
+    url: "",
+    tagline: "Seedance 2.0 Video Script Generator",
+    tech: ["Python", "FastAPI", "OpenRouter", "Railway"],
+    status: "hold",
+    logo: null,
+  },
+  {
+    id: "nftexecutive",
+    name: "NFT Executive",
+    url: "",
+    tagline: "Mint the executive way",
+    tech: ["Telegraf", "TypeScript", "Viem", "Railway"],
+    status: "building",
+    logo: null,
+  },
+  {
+    id: "relaypost",
+    name: "RelayPost",
+    url: "https://relaypost.lovable.app",
+    tagline: "Write Once, Distribute everywhere",
+    tech: ["Vite", "Shadcn", "Html2Canvas", "Lovable"],
+    status: "hackathon",
+    logo: null,
+  },
+  {
+    id: "scopeai",
+    name: "ScopeAI",
+    url: "",
+    tagline: "AI-Powered Scope of Work Generator",
+    tech: ["AI"],
+    status: "hackathon",
+    logo: null,
+  },
+];
+
+export const featuredBuilds = builds.filter((b) => b.featured);
+export const secondaryBuilds = builds.filter((b) => !b.featured);

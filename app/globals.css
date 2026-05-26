@@ -1,0 +1,70 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'Satoshi', system-ui, sans-serif;
+  --sidebar-w: 340px;
+
+  /* Palette */
+  --yellow:      #E8B84B;
+  --yellow-dark: #C99A2E;
+  --yellow-dim:  rgba(232, 184, 75, 0.12);
+  --yellow-glow: rgba(232, 184, 75, 0.06);
+  --ink:         #0A0A08;
+  --ink2:        #4A4844;
+  --ink3:        #8A8880;
+  --ink4:        #BBBBAF;
+  --surface:     #FAFAF7;
+  --card:        #FFFFFF;
+  --card2:       #F5F4EF;
+  --border:      #E8E6DF;
+  --border-dk:   #D0CEC6;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-dk); border-radius: 2px; }
+.sidebar::-webkit-scrollbar { display: none; }
+
+/* Badge pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.3; }
+}
+
+.badge-dot-live { animation: pulse-dot 2s infinite; }
+
+/* Card hover top bar */
+.card-featured {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card-featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--yellow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 18px 18px 0 0;
+}
+.card-featured:hover { border-color: var(--yellow); box-shadow: 0 4px 24px rgba(232,184,75,0.1); }
+.card-featured:hover::before { opacity: 1; }
+
+.card-compact { transition: border-color 0.2s, box-shadow 0.2s; }
+.card-compact:hover { border-color: var(--yellow); box-shadow: 0 2px 16px rgba(232,184,75,0.08); }
