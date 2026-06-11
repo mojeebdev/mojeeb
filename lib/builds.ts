@@ -13,6 +13,7 @@ export interface Build {
   xHandle?: string;
   featured?: boolean;
   logo?: string | null;
+  tags?: string[];
 }
 
 export const builds: Build[] = [
@@ -269,6 +270,7 @@ export const builds: Build[] = [
     tech: ["AI"],
     status: "hackathon",
     logo: null,
+    tags: ["Winner Creative Content Award"],
   },
 ];
 
