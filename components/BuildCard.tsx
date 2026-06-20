@@ -49,13 +49,21 @@ function Badge({ status }: { status: BuildStatus }) {
   );
 }
 
-export default function BuildCard({ build }: { build: Build }) {
+export default function BuildCard({
+  build,
+  featured = false,
+}: {
+  build: Build;
+  featured?: boolean;
+}) {
+  const isHighlighted = featured || build.featured;
+
   return (
     <article
       className="card-featured"
       style={{
-        background: "var(--card)",
-        border: "1px solid var(--border)",
+        background: isHighlighted ? "var(--yellow-glow)" : "var(--card)",
+        border: `1px solid ${isHighlighted ? "rgba(232,184,75,0.35)" : "var(--border)"}`,
         borderRadius: 18,
         padding: 32,
         position: "relative",
@@ -129,7 +137,32 @@ export default function BuildCard({ build }: { build: Build }) {
             )}
           </div>
         </div>
-        <Badge status={build.status} />
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+          {build.tags && build.tags.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "flex-end" }}>
+              {build.tags.map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 8,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "var(--yellow-dark)",
+                    background: "var(--yellow-dim)",
+                    border: "1px solid rgba(232,184,75,0.35)",
+                    borderRadius: 100,
+                    padding: "4px 10px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          <Badge status={build.status} />
+        </div>
       </div>
 
       {/* Tagline */}

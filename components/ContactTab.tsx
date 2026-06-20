@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, MessageSquare, ArrowRight, Cpu, Network, TrendingUp, Zap } from "lucide-react";
 
 const social = [
-  { icon: <Mail size={16} />,           label: "Email",      val: "mojeeb.eth@gmail.com", link: "mailto:mojeeb.eth@gmail.com" },
-  { icon: <MessageSquare size={16} />,  label: "Telegram",   val: "@mojeebeth",            link: "https://t.me/mojeebeth"      },
+  { icon: <Mail size={16} />,           label: "Email",      val: "hello@mojeeb.xyz", link: "mailto:hello@mojeeb.xyz" },
+  { icon: <MessageSquare size={16} />,  label: "Telegram",   val: "@tmojeeb",            link: "https://t.me/tmojeeb"      },
   {
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -11,8 +13,8 @@ const social = [
       </svg>
     ),
     label: "X (Twitter)",
-    val: "@mojeebeth",
-    link: "https://x.com/mojeebeth",
+    val: "@tmojeeb",
+    link: "https://x.com/tmojeeb",
   },
 ];
 
@@ -92,7 +94,7 @@ export default function ContactTab() {
           </div>
 
           <Link
-            href="mailto:mojeeb.eth@gmail.com"
+            href="mailto:hello@mojeeb.xyz"
             style={{
               display: "inline-flex",
               alignItems: "center",

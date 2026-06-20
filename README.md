@@ -1,8 +1,10 @@
-# Mojeeb Titilayo — AI Native Developer & Vibe Coder
+# Mojeeb Titilayo — AI Product Engineer, Expert Vibe Coder, and Strategist
 
 > "I got rejected countless of times. I locked in to change things for better."
 
-Personal portfolio for [mojeeb.xyz](https://mojeeb.xyz) — a sticky-sidebar, tab-navigated showcase of 20+ shipped AI and Web3 products. Built with Next.js 16 App Router, Freight Display Pro, and a yellow-accented light design system.
+*I build at the edge of thought.*
+
+Personal portfolio for [mojeeb.xyz](https://mojeeb.xyz) — a sticky-sidebar, tab-navigated showcase of 30+ shipped AI and Web3 products. Built with Next.js 16 App Router, Freight Display Pro, and a yellow-accented light design system.
 
 ---
 
@@ -25,31 +27,37 @@ Personal portfolio for [mojeeb.xyz](https://mojeeb.xyz) — a sticky-sidebar, ta
 mojeebfolio/
 ├── app/
 │   ├── layout.tsx        # Metadata, JSON-LD, font vars, OG tags
-│   ├── page.tsx          # Tab state manager
-│   └── globals.css       # CSS variables, Satoshi import, animations
+│   ├── page.tsx          # Permanent redirect → /builds
+│   ├── globals.css       # CSS variables, Satoshi import, animations
+│   ├── builds/page.tsx   # Portfolio — featured, vibeathon, hackathons
+│   ├── about/page.tsx    # Bio, hackathon win, education, DAETO
+│   ├── experience/page.tsx
+│   ├── blog/page.tsx
+│   ├── ai/page.tsx
+│   └── contact/page.tsx
 ├── components/
-│   ├── Sidebar.tsx       # Sticky left panel — avatar, nav, socials
-│   ├── BuildCard.tsx     # Featured build card (logo + full detail)
-│   ├── CompactCard.tsx   # Secondary grid card (logo + tagline)
-│   ├── BuildsTab.tsx     # /builds — featured + compact grid
-│   ├── AboutTab.tsx      # /about — bio, education, DAETO, stack
-│   ├── ExperienceTab.tsx # /experience — track record + capabilities
-│   ├── BlogTab.tsx       # /blog — bento grid of articles
-│   ├── AITab.tsx         # /ai — AI-powered builds + certifications
-│   └── ContactTab.tsx    # /contact — CTA banner + socials + services
+│   ├── PortfolioShell.tsx # Shared sidebar + main layout
+│   ├── Sidebar.tsx        # Sticky left panel — avatar, nav, socials
+│   ├── BuildCard.tsx      # Featured / highlighted build card
+│   ├── CompactCard.tsx    # Grid card (logo, tagline, tags)
+│   ├── BuildsTab.tsx
+│   ├── AboutTab.tsx
+│   ├── ExperienceTab.tsx
+│   ├── BlogTab.tsx
+│   ├── AITab.tsx
+│   └── ContactTab.tsx
 ├── lib/
-│   ├── builds.ts         # All 24 builds — data, logos, status, tech
-│   └── fonts.ts          # Freight Display Pro local font setup
+│   ├── builds.ts         # builds, vibeathonBuilds, hackathonBuilds
+│   ├── site.ts           # Routes, per-page metadata, email constant
+│   ├── jsonLd.ts         # Person + WebSite structured data
+│   └── fonts.ts
 └── public/
-    ├── fonts/
-    │   └── freight-display-pro/   # 10 × woff2 files
-    ├── mojeeb-toon.png            # Avatar
-    ├── og-image.png               # OG banner (1200×630)
-    ├── favicon.ico
-    ├── favicon-16x16.png
-    ├── favicon-32x32.png
-    ├── apple-touch-icon.png
-    ├── android-chrome-192x192.png
+    ├── llms.txt          # Machine-readable profile for AI crawlers
+    ├── robots.txt
+    ├── sitemap.xml
+    ├── fonts/freight-display-pro/
+    ├── mojeeb-toon.png
+    ├── og-image.png
     └── site.webmanifest
 ```
 
@@ -97,7 +105,15 @@ public/fonts/freight-display-pro/
 
 ## Adding a New Build
 
-Open `lib/builds.ts` and add an entry to the `builds` array:
+Open `lib/builds.ts` and add an entry to the appropriate array:
+
+| Array              | Use for                                      |
+|--------------------|----------------------------------------------|
+| `builds`           | General portfolio products                   |
+| `vibeathonBuilds`  | Vibeathon challenge builds                   |
+| `hackathonBuilds`  | Hackathon submissions                        |
+
+Vibeathon hub link: `vibeathonHubUrl` → `http://vibeathon30days.vercel.app`
 
 ```ts
 {
@@ -105,20 +121,34 @@ Open `lib/builds.ts` and add an entry to the `builds` array:
   name: "Build Name",
   url: "https://yourbuild.com",
   tagline: "One line tagline",
-  problem: "The problem it solves.",       
-  idea: "The idea behind it.",            
-  stats: [                                 
+  problem: "The problem it solves.",       // optional — featured cards only
+  idea: "The idea behind it.",             // optional
+  stats: [                                 // optional
     { label: "Users", value: "1,200" },
   ],
-  tech: ["Next.js", "Supabase"],
-  status: "live",                          
-  xHandle: "@YourHandle",                  
-  featured: true,                          
-  logo: "https://yourbuild.com/logo.png",  
+  tech: ["Prompt Engineered by Mojeeb Titilayo", "Next.js", "Supabase"],
+  status: "live",                          // live | building | paused | hold | hackathon
+  xHandle: "@YourHandle",                  // optional
+  featured: true,                          // optional — highlighted card
+  logo: "https://yourbuild.com/logo.png",  // optional
+  tags: ["Award or context label"],        // optional — e.g. hackathon name, "Built on Medo"
 }
 ```
 
-Set `featured: true` for the 7-slot featured section. Everything else falls into the compact 2-col grid automatically.
+- Set `featured: true` in `builds` for the 6-slot featured section (everything else → compact grid).
+- Set `featured: true` in `hackathonBuilds` to render as a highlighted `BuildCard` (e.g. ScopeAI award winner).
+- All three sections render in `BuildsTab.tsx` automatically via exported filters.
+- `tags` render as yellow badges on `BuildCard` and `CompactCard` in the live UI.
+
+---
+
+## SEO & Discoverability
+
+- Crawlable routes: `/builds`, `/about`, `/experience`, `/blog`, `/ai`, `/contact`
+- `public/llms.txt` — AI-readable profile (identity, products, awards, contact)
+- `public/sitemap.xml` + `public/robots.txt` (Google, Bing, GPTBot, PerplexityBot allowed)
+- JSON-LD `Person` + `WebSite` schemas in `app/layout.tsx` via `lib/jsonLd.ts`
+- Submit sitemap in [Google Search Console](https://search.google.com/search-console) after deploy
 
 ---
 
@@ -142,10 +172,11 @@ Set `featured: true` for the 7-slot featured section. Everything else falls into
 
 ## Track Record
 
-- **BlindspotLab** — AI-native build studio. 18+ products shipped solo.
+- **ScopeAI** — Content Creative Award winner, Build with Medo hackathon (Devpost).
+- **BlindspotLab** — AI-native build studio. 30+ products shipped solo.
 - **Taiku NFT** — Grew community from 3 → 9,000+ followers in 3.5 days.
 - **SkylosChain** — Lifted engagement from 5% → 95% in 14 days.
-- **Arcapush** — Startup discovery registry, 61+ indexed, 1.5k/mo traffic.
+- **Arcapush** — Startup discovery registry, 62+ indexed, 1.5k/mo traffic.
 
 ---
 
@@ -166,11 +197,11 @@ Set `NEXT_PUBLIC_SITE_URL=https://mojeeb.xyz` in Vercel environment variables if
 
 | Platform  | Handle / Link                                |
 |----------|----------------------------------------------|
-| X        | [@mojeebeth](https://x.com/mojeebeth)        |
+| X        | [@tmojeeb](https://x.com/tmojeeb)        |
 | GitHub   | [mojeebdev](https://github.com/mojeebdev)    |
-| YouTube  | [@MojeebHQ](https://youtube.com/@MojeebHQ)  |
-| LinkedIn | [mojeebeth](https://linkedin.com/in/mojeebeth) |
-| Email    | mojeeb.eth@gmail.com                         |
+| YouTube  | [@Tmojeeb](https://youtube.com/@tmojeeb)  |
+| LinkedIn | [tmojeeb](https://linkedin.com/in/tmojeeb) |
+| Email    | hello@mojeeb.xyz                         |
 | Studio   | [blindspotlab.xyz](https://blindspotlab.xyz) |
 
 ---

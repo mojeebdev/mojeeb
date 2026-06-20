@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AboutTab() {
   const S = {
     sectionLabel: {
@@ -40,6 +42,21 @@ export default function AboutTab() {
         About <em style={{ color: "var(--yellow-dark)" }}>Mojeeb.</em>
       </h2>
 
+      <p
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: 18,
+          fontStyle: "italic",
+          fontWeight: 500,
+          color: "var(--ink2)",
+          lineHeight: 1.5,
+          marginTop: -24,
+          marginBottom: 32,
+        }}
+      >
+        I build at the edge of thought.
+      </p>
+
       <div
         style={{
           display: "grid",
@@ -78,11 +95,100 @@ export default function AboutTab() {
             }}
           >
             Self-taught builder. Started coding on wapka.mobi in 2014–15 — no
-            formal CS, no bootcamp. Just building. Spent 12+ years in Web2
+            formal CS, bootcamp. Just building. Spent 12+ years in Web2
             marketing, 4+ years in Web3 strategy, then pivoted to full-stack
-            AI-native development. 20+ products shipped. Solo. Fast. Real use
+            AI-native development. 30+ products shipped. Solo. Fast. Real use
             cases.
           </p>
+        </div>
+
+        {/* Hackathon win — wide */}
+        <div
+          style={{
+            ...S.card,
+            gridColumn: "1 / -1",
+            background: "var(--yellow-glow)",
+            border: "1px solid rgba(232,184,75,0.35)",
+          }}
+        >
+          <p style={S.cardLabel}>Hackathon Win</p>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "space-between",
+              gap: 16,
+              flexWrap: "wrap",
+            }}
+          >
+            <div style={{ flex: 1, minWidth: 220 }}>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 22,
+                  fontWeight: 700,
+                  color: "var(--ink)",
+                  marginBottom: 8,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                ScopeAI — Content Creative Award
+              </h3>
+              <p
+                style={{
+                  fontSize: 13.5,
+                  fontWeight: 300,
+                  color: "var(--ink2)",
+                  lineHeight: 1.7,
+                  marginBottom: 12,
+                }}
+              >
+                Winner at{" "}
+                <strong style={{ fontWeight: 600, color: "var(--ink)" }}>
+                  Build with Medo
+                </strong>{" "}
+                on Devpost — AI-Powered Scope of Work Generator built with
+                deliberate prompt architecture.
+              </p>
+              <span
+                style={{
+                  display: "inline-flex",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 8,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--yellow-dark)",
+                  background: "var(--yellow-dim)",
+                  border: "1px solid rgba(232,184,75,0.35)",
+                  borderRadius: 100,
+                  padding: "5px 12px",
+                }}
+              >
+                Content Creative Award · Devpost
+              </span>
+            </div>
+            <Link
+              href="https://app-bqgzl028s6ip.appmedo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "var(--ink)",
+                background: "var(--yellow)",
+                border: "1px solid var(--yellow)",
+                borderRadius: 10,
+                padding: "12px 18px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                alignSelf: "center",
+              }}
+            >
+              View ScopeAI ↗
+            </Link>
+          </div>
         </div>
 
         {/* Education */}

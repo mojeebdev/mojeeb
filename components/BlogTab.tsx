@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,7 +15,7 @@ const posts = [
   {
     title: "The Subtle Act of Not Giving a Fvck",
     desc: "Foundations of community building through Emotional Intelligence.",
-    link: "https://mojeebhq.medium.com/the-subtle-act-of-not-giving-a-fvck-about-your-community-community-building-31043b5160aa",
+    link: "https://tmojeeb.medium.com/the-subtle-act-of-not-giving-a-fvck-about-your-community-community-building-31043b5160aa",
     tag: "Community",
     featured: false,
     wide: false,
@@ -37,7 +39,7 @@ const posts = [
   {
     title: "Growth Hack: FEEDBACK",
     desc: "Turn raw input into a growth engine for your protocol.",
-    link: "https://mojeebhq.medium.com/the-subtle-act-of-not-giving-a-fvck-about-your-community-community-building-6afe90b633f4",
+    link: "https://tmojeeb.medium.com/the-subtle-act-of-not-giving-a-fvck-about-your-community-community-building-6afe90b633f4",
     tag: "Growth",
     featured: false,
     wide: false,
@@ -307,7 +309,7 @@ export default function BlogTab() {
           Follow on X for live updates.
         </p>
         <Link
-          href="https://x.com/mojeebeth"
+          href="https://x.com/tmojeeb"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -326,7 +328,7 @@ export default function BlogTab() {
             textDecoration: "none",
           }}
         >
-          Follow @mojeebeth ↗
+          Follow @tmojeeb ↗
         </Link>
       </div>
     </div>

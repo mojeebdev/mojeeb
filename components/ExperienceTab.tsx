@@ -25,7 +25,7 @@ export default function ExperienceTab() {
       role: "Founder & AI-Native Developer",
       period: "Dec 2025 – Present",
       status: "active" as const,
-      desc: "Productized build-as-a-service studio — \"You have the idea. We ship the product.\" Shipping AI + Web3 products solo at speed. 20+ products across AI, SaaS, and Web3 domains.",
+      desc: "Productized build-as-a-service studio — \"You have the idea. We ship the product.\" Shipping AI + Web3 products solo at speed. 30+ products across AI, SaaS, and Web3 domains.",
       metric: null,
     },
     {

@@ -77,6 +77,30 @@ export default function CompactCard({ build }: { build: Build }) {
         </span>
       </div>
 
+      {/* Tags */}
+      {build.tags && build.tags.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 10 }}>
+          {build.tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 7,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "var(--yellow-dark)",
+                background: "var(--yellow-dim)",
+                border: "1px solid rgba(232,184,75,0.35)",
+                borderRadius: 100,
+                padding: "3px 8px",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Divider */}
       <div style={{ height: 1, background: "var(--border)", marginBottom: 12 }} />
 

@@ -2,24 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-type Tab = "builds" | "about" | "experience" | "blog" | "ai" | "contact";
+import { NAV_ITEMS, type Tab } from "@/lib/site";
 
 interface SidebarProps {
   activeTab: Tab;
-  onTabChange: (tab: Tab) => void;
 }
 
-const navItems: { id: Tab; icon: string; label: string }[] = [
-  { id: "builds",     icon: "⬡", label: "Builds"                   },
-  { id: "about",      icon: "◎", label: "About"                    },
-  { id: "experience", icon: "◈", label: "Experience & Capabilities" },
-  { id: "blog",       icon: "◻", label: "Blog"                     },
-  { id: "ai",         icon: "⟁", label: "AI"                       },
-  { id: "contact",    icon: "✉", label: "Contact"                   },
-];
-
-export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+export default function Sidebar({ activeTab }: SidebarProps) {
   return (
     <aside
       className="sidebar"
@@ -79,7 +68,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
 
         {/* Role tags */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5, margin: "8px 0 12px" }}>
-          {["AI Native Dev", "Vibe Coder", "Web3 Strategist"].map((r) => (
+          {["AI Product Engineer", "Expert Vibe Coder", "Strategist"].map((r) => (
             <span
               key={r}
               style={{
@@ -98,6 +87,21 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
             </span>
           ))}
         </div>
+
+        {/* Tagline */}
+        <p
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: 13,
+            fontStyle: "italic",
+            fontWeight: 500,
+            color: "var(--ink2)",
+            lineHeight: 1.5,
+            marginBottom: 12,
+          }}
+        >
+          I build at the edge of thought.
+        </p>
 
         {/* Location */}
         <div
@@ -142,7 +146,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
           for better.&rdquo;
           <br />
           <br />
-          Solo founder. Building AI and Web3 products under BlindspotLab. 20+
+          Solo founder. Building AI and Web3 products under BlindspotLab. 30+
           shipped.
         </p>
 
@@ -155,7 +159,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
           }}
         >
           {[
-            { num: "20+", lbl: "Shipped" },
+            { num: "30+", lbl: "Shipped" },
             { num: "1B$",  lbl: "Dreams"  },
             { num: "∞",   lbl: "Ships"   },
           ].map((s, i) => (
@@ -199,7 +203,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
 
         {/* CTA */}
         <a
-          href="mailto:mojeeb.eth@gmail.com"
+          href="mailto:hello@mojeeb.xyz"
           style={{
             display: "flex",
             alignItems: "center",
@@ -235,10 +239,10 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
 
         {/* Nav */}
         <nav style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {navItems.map((item) => (
-            <button
+          {NAV_ITEMS.map((item) => (
+            <Link
               key={item.id}
-              onClick={() => onTabChange(item.id)}
+              href={item.href}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -249,11 +253,10 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
                 color: activeTab === item.id ? "var(--ink)" : "var(--ink3)",
                 padding: "10px 12px",
                 borderRadius: 10,
-                cursor: "pointer",
                 background:
                   activeTab === item.id ? "var(--yellow-dim)" : "transparent",
                 border: `1px solid ${activeTab === item.id ? "var(--yellow)" : "transparent"}`,
-                textAlign: "left",
+                textDecoration: "none",
                 width: "100%",
                 transition: "all 0.18s",
               }}
@@ -262,7 +265,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
                 {item.icon}
               </span>
               {item.label}
-            </button>
+            </Link>
           ))}
         </nav>
       </div>
@@ -279,9 +282,9 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
         }}
       >
         {[
-          { href: "https://x.com/mojeebeth",       label: "𝕏 @mojeebeth" },
+          { href: "https://x.com/tmojeeb",       label: "𝕏 @tmojeeb" },
           { href: "https://github.com/mojeebdev",   label: "⌥ GitHub"     },
-          { href: "https://youtube.com/@MojeebHQ", label: "▷ YouTube"    },
+          { href: "https://youtube.com/@tmojeeb", label: "▷ YouTube"    },
           { href: "https://blindspotlab.xyz",       label: "↗ Studio"     },
         ].map((s) => (
           <Link

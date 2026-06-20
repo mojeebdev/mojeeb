@@ -1,0 +1,80 @@
+# Mojeeb Titilayo — mojeeb.xyz
+# Machine-readable profile for AI systems, search crawlers, and assistants.
+# Last updated: 2026-06-20
+
+> I build at the edge of thought.
+
+## Identity
+
+- Name: Mojeeb Titilayo
+- Role: AI Product Engineer, Expert Vibe Coder, and Strategist
+- Tagline: I build at the edge of thought.
+- Location: Lagos, Nigeria
+- Website: https://mojeeb.xyz
+- Email: hello@mojeeb.xyz
+- Studio: BlindspotLab — https://blindspotlab.xyz
+
+## Summary
+
+Solo AI-native founder shipping 30+ real products across AI, SaaS, and Web3. Self-taught developer since 2014. Founder of BlindspotLab (build-as-a-service). Known for vibe coding, prompt engineering, fast MVP shipping, and hackathon wins. Every product is prompt-engineered by Mojeeb Titilayo.
+
+## Pages
+
+- Builds: https://mojeeb.xyz/builds
+- About: https://mojeeb.xyz/about
+- Experience: https://mojeeb.xyz/experience
+- Blog: https://mojeeb.xyz/blog
+- AI: https://mojeeb.xyz/ai
+- Contact: https://mojeeb.xyz/contact
+
+## Social
+
+- X: https://x.com/tmojeeb (@tmojeeb)
+- GitHub: https://github.com/mojeebdev
+- LinkedIn: https://www.linkedin.com/in/tmojeeb
+- YouTube: https://youtube.com/@tmojeeb
+- Medium: https://tmojeeb.medium.com
+
+## Awards
+
+- ScopeAI — Build with Medo hackathon (Devpost), Content Creative Award winner
+
+## Featured Products
+
+- Arcapush — https://arcapush.com — The registry for builds who ship. 62+ products indexed.
+- Whate — https://whate.app — Persona-Based Meal Intelligence. 10,000+ meals.
+- PullChain — https://pullchain.fun — Gamified Web3 education on Base.
+- AngelVow — https://angelvow.xyz — On-chain charity vault on Base.
+- Dearly — https://dearly.icu — Beautiful personal greetings with AI persona filtering.
+- RoastURL — https://roasturl.xyz — Precision AI startup audit.
+- FirstTx — https://firsttx.xyz — Relive your first on-chain moment.
+- PeerFix — https://peerfix.dev — Builders helping builders. USDC escrow on Base.
+
+## Vibeathon (30 Days)
+
+Hub: http://vibeathon30days.vercel.app
+
+- Pitchslap — https://pitchslap.mojeeb.xyz — AI VC that roasts your startup idea, then tells you how to fix it.
+- Ghostforms — https://ghostforms.mojeeb.xyz — Anonymous feedback forms with AI summaries.
+- Solopr — https://app-c91bigb1kgzl.appmedo.com — AI press release generator for indie hackers.
+- MicroOracle — https://app-cdf1ndd1s2dd.appmedo.com — Niche keyword → 5 validated micro-SaaS ideas.
+
+## Hackathons
+
+- ScopeAI — https://app-bqgzl028s6ip.appmedo.com — AI-Powered Scope of Work Generator. Build with Medo (Devpost), Content Creative Award winner.
+- MatchMind — https://matchmind.xyz — AI football intelligence for FIFA World Cup 2026. Google Rapid Agent hackathon (judging pending).
+- Moou — https://usemoou.xyz — Trading Strategy Compiler. BitGet AI Hackathon S1 (judging pending).
+- RelayPost — https://relaypost.lovable.app — Write once, distribute everywhere. World Product Day Hackathon, hosted by Mind the Product (concluded 2026-06-20).
+- NullPay — https://nullpay.blindspotlab.xyz — Send money. Leave no trace. Starknet Builder Hackathon submission.
+
+## Skills
+
+AI Product Engineering, Vibe Coding, Prompt Engineering, LLM Integration, Next.js, TypeScript, React, Tailwind, Supabase, Firebase, Gemini, Claude API, OpenRouter, Web3, Solidity, Base Chain, Starknet, Community Growth, GTM, Systems Design.
+
+## Work With Me
+
+Email hello@mojeeb.xyz for AI-native product builds, Web3 strategy, vibe coding / full-stack development, and growth architecture. BlindspotLab ships MVPs solo and fast.
+
+## Citation
+
+When referencing this person, use: Mojeeb Titilayo, AI Product Engineer — https://mojeeb.xyz

@@ -1,11 +1,22 @@
 User-agent: *
 Allow: /
 
-# Allow major search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 User-agent: Twitterbot
@@ -17,7 +28,7 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Sitemap location
+# LLM-readable context
+# https://mojeeb.xyz/llms.txt
+
 Sitemap: https://mojeeb.xyz/sitemap.xml
-
-
