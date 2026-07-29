@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./portfolio-fixes.css";
 import { freightDisplay } from "@/lib/fonts";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
@@ -22,9 +23,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Mojeeb Titilayo", url: BASE_URL }],
   creator: "Mojeeb Titilayo",
   publisher: "BlindspotLab",
-
   alternates: { canonical: BASE_URL },
-
   robots: {
     index: true,
     follow: true,
@@ -36,14 +35,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   icons: {
     icon: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
     shortcut: [{ url: "/mojeeb_headshot.png", type: "image/png" }],
     apple: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
   },
-
-
   openGraph: {
     type: "profile",
     url: BASE_URL,
@@ -57,8 +53,6 @@ export const metadata: Metadata = {
     lastName: "Titilayo",
     username: "MojeebMotion",
   },
-
-
   twitter: {
     card: "summary_large_image",
     site: "@MojeebMotion",
@@ -68,17 +62,14 @@ export const metadata: Metadata = {
       "AI Product Engineer, System Architect and Strategist building intentional products across AI, SaaS, developer tools and Web3.",
     images: ["/mojeeb-editorial-og.jpg"],
   },
-
-
   manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F4F0E8",
+  themeColor: "#eeece5",
   width: "device-width",
   initialScale: 1,
 };
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -94,9 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={freightDisplay.variable}>
-        {children}
-      </body>
+      <body className={freightDisplay.variable}>{children}</body>
     </html>
   );
 }
