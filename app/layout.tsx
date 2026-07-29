@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./portfolio-fixes.css";
 import "./animation-fixes.css";
+import "./hero-final.css";
 import { freightDisplay } from "@/lib/fonts";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
