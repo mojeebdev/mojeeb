@@ -3,6 +3,8 @@ import "./globals.css";
 import "./portfolio-fixes.css";
 import "./animation-fixes.css";
 import "./hero-final.css";
+import "./motion-system.css";
+import MotionDirector from "@/components/MotionDirector";
 import { freightDisplay } from "@/lib/fonts";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
@@ -87,7 +89,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={freightDisplay.variable}>{children}</body>
+      <body className={freightDisplay.variable}>
+        <MotionDirector />
+        {children}
+      </body>
     </html>
   );
 }
