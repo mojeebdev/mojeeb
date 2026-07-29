@@ -36,12 +36,6 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "src",
-    "supabase",
-    "vite.config.ts",
-    "dist"
+    "node_modules"
   ]
 }
-
-
