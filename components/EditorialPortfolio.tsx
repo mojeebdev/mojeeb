@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects, type Project } from "@/lib/projects";
+import IntroPortrait from "@/components/IntroPortrait";
 import MobileNavigation from "@/components/MobileNavigation";
 import ProjectArchive from "@/components/ProjectArchive";
 import { displayProjectStatus, ExternalArrow, prettyCategory } from "@/components/ProjectPrimitives";
@@ -111,15 +112,19 @@ export default function EditorialPortfolio() {
           </div>
         </section>
 
-        <section id="about" className="intro-section panel" aria-labelledby="intro-title">
-          <div className="section-number">01</div>
-          <div className="intro-copy">
+        <section id="about" className="intro-section intro-editorial panel" aria-labelledby="intro-title">
+          <div className="intro-copy intro-editorial__lead">
             <h2 id="intro-title">Hey!</h2>
-            <p>I&apos;m Mojeeb, an AI Product Engineer, System Architect and Product Strategist based in Nigeria.</p>
-            <p>I turn rough ideas, useful information and overlooked problems into clear, buildable products across AI, SaaS, developer tools and Web3.</p>
-            <Link className="solid-link" href="/work">Selected work <span aria-hidden="true">&#8595;</span></Link>
+            <p className="intro-editorial__statement">I&apos;m Mojeeb, a product builder based in Nigeria, turning complex ideas into useful products across AI, SaaS, developer tools and Web3.</p>
           </div>
-          <p className="intro-side">Founder, BlindspotLab<br />40+ shipped builds<br />70 repositories</p>
+
+          <IntroPortrait />
+
+          <div className="intro-side intro-editorial__detail">
+            <p>I&apos;m an AI Product Engineer, System Architect and Product Strategist with a strong focus on useful systems, clear product direction and disciplined execution.</p>
+            <p>Across 40+ shipped builds, I&apos;ve worked on product studios, discovery platforms, developer tools, agent experiences, SaaS products and onchain systems.</p>
+            <Link className="intro-editorial__link" href="/about">More about me <span aria-hidden="true">&#8599;</span></Link>
+          </div>
         </section>
 
         <section id="capabilities" className="capabilities-section panel" aria-labelledby="capabilities-title">
