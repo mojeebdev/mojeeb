@@ -1,0 +1,196 @@
+/* Separate the treated hero portrait from the free-standing original portrait below. */
+
+.intro-editorial {
+  display: grid;
+  min-height: min(900px, 100svh);
+  grid-template-columns: minmax(230px, .78fr) minmax(360px, 1.12fr) minmax(280px, .82fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: stretch;
+  padding-top: clamp(7rem, 10vw, 10rem);
+  padding-bottom: clamp(5rem, 8vw, 8rem);
+}
+
+.intro-editorial__lead {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.intro-editorial__lead h2 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(4.7rem, 6.5vw, 7.2rem);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: .82;
+}
+
+.intro-editorial__statement {
+  max-width: 20rem;
+  margin: 0;
+  font-size: clamp(1.12rem, 1.45vw, 1.5rem) !important;
+  font-weight: 700;
+  letter-spacing: -.045em !important;
+  line-height: 1.35 !important;
+}
+
+.intro-portrait {
+  position: relative;
+  min-height: clamp(500px, 63vh, 680px);
+  align-self: center;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #d9d6cd;
+  box-shadow: 0 26px 70px rgb(20 18 14 / .1);
+}
+
+.intro-portrait::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(17 17 15 / .1);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.intro-portrait__image {
+  object-fit: cover;
+  object-position: center top;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: translateY(var(--intro-image-shift, 0px)) scale(1.035);
+  transition: transform .22s linear;
+  will-change: transform;
+}
+
+.intro-editorial__detail {
+  display: flex;
+  max-width: 31rem;
+  flex-direction: column;
+  align-self: end;
+  gap: 1.15rem;
+  margin: 0 0 .5rem;
+  color: var(--ink);
+  font-size: clamp(1rem, 1.18vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.38;
+  text-transform: none;
+}
+
+.intro-editorial__detail p {
+  margin: 0;
+}
+
+.intro-editorial__link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .35rem;
+  border-bottom: 1px solid currentColor;
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.intro-editorial__link span {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 9px;
+  transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+}
+
+.intro-editorial__link:hover span {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 1100px) {
+  .intro-editorial {
+    grid-template-columns: minmax(190px, .7fr) minmax(320px, 1fr) minmax(230px, .75fr);
+    gap: 2rem;
+  }
+
+  .intro-portrait {
+    min-height: clamp(470px, 59vh, 620px);
+  }
+}
+
+@media (max-width: 900px) {
+  .intro-editorial {
+    min-height: auto;
+    grid-template-columns: minmax(0, .7fr) minmax(300px, 1fr);
+    grid-template-areas:
+      "lead portrait"
+      "detail portrait";
+    gap: 2.5rem 2rem;
+    align-items: end;
+  }
+
+  .intro-editorial__lead {
+    grid-area: lead;
+    gap: 4rem;
+  }
+
+  .intro-portrait {
+    grid-area: portrait;
+    min-height: 540px;
+  }
+
+  .intro-editorial__detail {
+    grid-area: detail;
+  }
+}
+
+@media (max-width: 680px) {
+  .intro-editorial {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "lead"
+      "portrait"
+      "detail";
+    gap: 2.2rem;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .intro-editorial__lead {
+    gap: 2.2rem;
+  }
+
+  .intro-editorial__lead h2 {
+    font-size: clamp(4.6rem, 22vw, 7rem);
+  }
+
+  .intro-editorial__statement {
+    max-width: 100%;
+  }
+
+  .intro-portrait {
+    min-height: 0;
+    width: 100%;
+    aspect-ratio: .78;
+    border-radius: 20px;
+  }
+
+  .intro-editorial__detail {
+    max-width: 100%;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-portrait__image,
+  .intro-editorial__link span {
+    transition: none;
+  }
+}
