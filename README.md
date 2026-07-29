@@ -1,209 +1,215 @@
-# Mojeeb Titilayo — AI Product Engineer, Expert Vibe Coder, and Strategist
+# Hey, I’m Mojeeb 👋
 
-> "I got rejected countless of times. I locked in to change things for better."
+**AI Product Engineer · System Architect · AI & Web3 Strategist**
 
-*I build at the edge of thought.*
+I build products at the edge of thought — turning rough ideas, useful information, and overlooked problems into tools people can actually use.
 
-Personal portfolio for [mojeeb.xyz](https://mojeeb.xyz) — a sticky-sidebar, tab-navigated showcase of 30+ shipped AI and Web3 products. Built with Next.js 16 App Router, Freight Display Pro, and a yellow-accented light design system.
+I’ve spent **12+ years in Web2 marketing**, **4+ years in Web3 strategy**, and I’ve been teaching myself how to build since 2014. Today, I work across product strategy, system architecture, AI, SaaS, developer tools, and on-chain products.
 
----
+I’m also the founder of **[BlindspotLab](https://blindspotlab.xyz)** — an AI-native product studio for founders and teams who are nearly there, but need sharper thinking, stronger systems, and better execution.
 
-## Tech Stack
-
-| Layer        | Choice                                              |
-|-------------|-----------------------------------------------------|
-| Framework    | Next.js 16 (App Router)                            |
-| Language     | TypeScript                                          |
-| Styling      | Tailwind CSS + CSS custom properties                |
-| Fonts        | Freight Display Pro (local) · Satoshi · JetBrains Mono |
-| Icons        | Lucide React                                        |
-| Deployment   | Vercel                                              |
+> I don’t just want to build more. I want to build things that make sense.
 
 ---
 
-## Project Structure
+## What I do
 
-```
-mojeebfolio/
-├── app/
-│   ├── layout.tsx        # Metadata, JSON-LD, font vars, OG tags
-│   ├── page.tsx          # Permanent redirect → /builds
-│   ├── globals.css       # CSS variables, Satoshi import, animations
-│   ├── builds/page.tsx   # Portfolio — featured, vibeathon, hackathons
-│   ├── about/page.tsx    # Bio, hackathon win, education, DAETO
-│   ├── experience/page.tsx
-│   ├── blog/page.tsx
-│   ├── ai/page.tsx
-│   └── contact/page.tsx
-├── components/
-│   ├── PortfolioShell.tsx # Shared sidebar + main layout
-│   ├── Sidebar.tsx        # Sticky left panel — avatar, nav, socials
-│   ├── BuildCard.tsx      # Featured / highlighted build card
-│   ├── CompactCard.tsx    # Grid card (logo, tagline, tags)
-│   ├── BuildsTab.tsx
-│   ├── AboutTab.tsx
-│   ├── ExperienceTab.tsx
-│   ├── BlogTab.tsx
-│   ├── AITab.tsx
-│   └── ContactTab.tsx
-├── lib/
-│   ├── builds.ts         # builds, vibeathonBuilds, hackathonBuilds
-│   ├── site.ts           # Routes, per-page metadata, email constant
-│   ├── jsonLd.ts         # Person + WebSite structured data
-│   └── fonts.ts
-└── public/
-    ├── llms.txt          # Machine-readable profile for AI crawlers
-    ├── robots.txt
-    ├── sitemap.xml
-    ├── fonts/freight-display-pro/
-    ├── mojeeb-toon.png
-    ├── og-image.png
-    └── site.webmanifest
-```
+- Turn early ideas into clear, buildable products
+- Design product systems before touching the code
+- Build AI-native SaaS, developer tools, and Web3 products
+- Audit positioning, product direction, UX, and architecture
+- Use AI as leverage without giving up judgement
+- Help useful ideas survive beyond a post, thread, or timeline
+
+I think like a strategist before I build like an engineer.
 
 ---
 
-## Local Setup
+## Selected builds
 
-```bash
-# Install dependencies
-npm install
+### [Arcapush](https://arcapush.com)
+A high-signal discovery platform for serious solo builders who ship.
 
-# Run dev server
-npm run dev
+### [BlindspotLab](https://blindspotlab.xyz)
+An AI-native product studio for founders and teams who need strategy, design, systems, and execution.
 
-# Build for production
-npm run build
+### [StackBrief](https://stackbrief.peerfix.dev)
+**The architectural brief before a code change.**
 
-# Preview production build
-npm start
-```
+An open-source, local-first CLI that helps developers and coding agents understand a repository before changing it.
 
----
+- [GitHub](https://github.com/mojeebdev/stackbrief)
+- npm: `@blindspotlab/stackbrief`
 
-## Activating Freight Display Pro
+### [Revel](https://tryrevel.xyz)
+A website and product audit SaaS that gives builders direct, practical feedback on what is broken and what to improve.
 
-Freight Display Pro is a licensed font ([myfonts.com](https://www.myfonts.com/fonts/garagefonts/freight-disp-pro/)). The 10 required `woff2` files go in:
+### [SiteHook](https://sitehook.run)
+A SaaS tool for freelancers, studios, agencies, and solo builders to research prospects, run SEO audits, create better cold outreach, and share branded preview websites.
 
-```
-public/fonts/freight-display-pro/
-├── FreightDispProBook-Regular.woff2
-├── FreightDispProBook-Italic.woff2
-├── FreightDispProMedium-Regular.woff2
-├── FreightDispProMedium-Italic.woff2
-├── FreightDispProSemibold-Regular.woff2
-├── FreightDispProSemibold-Italic.woff2
-├── FreightDispProBold-Regular.woff2
-├── FreightDispProBold-Italic.woff2
-├── FreightDispProBlack-Regular.woff2
-└── FreightDispProBlack-Italic.woff2
-```
+### [Dearly](https://dearly.icu)
+A personal greetings product built to help people express care in a more thoughtful and less generic way.
 
-`lib/fonts.ts` is already wired up to load them via `next/font/local`. No additional configuration needed.
+### [Whate](https://whate.app)
+A meal discovery product built around a large catalogue of meals and practical food exploration.
 
----
+### [Admon](https://admon.peerfix.dev)
+A Web3 builder identity product that turns GitHub activity and credentials into something visible, social, and on-chain.
 
-## Adding a New Build
+### [TalentLane](https://talentlane.vercel.app)
+An interactive guide to the UK Global Talent visa route for designers.
 
-Open `lib/builds.ts` and add an entry to the appropriate array:
+### [DaysAgo](https://daysago.vercel.app)
+A small, focused product that turns time into something visual, shareable, and surprising.
 
-| Array              | Use for                                      |
-|--------------------|----------------------------------------------|
-| `builds`           | General portfolio products                   |
-| `vibeathonBuilds`  | Vibeathon challenge builds                   |
-| `hackathonBuilds`  | Hackathon submissions                        |
+I have built **40+ products, tools, experiments, and platforms** across AI, developer tools, SaaS, and Web3.
 
-Vibeathon hub link: `vibeathonHubUrl` → `http://vibeathon30days.vercel.app`
-
-```ts
-{
-  id: "your-build-id",
-  name: "Build Name",
-  url: "https://yourbuild.com",
-  tagline: "One line tagline",
-  problem: "The problem it solves.",       // optional — featured cards only
-  idea: "The idea behind it.",             // optional
-  stats: [                                 // optional
-    { label: "Users", value: "1,200" },
-  ],
-  tech: ["Prompt Engineered by Mojeeb Titilayo", "Next.js", "Supabase"],
-  status: "live",                          // live | building | paused | hold | hackathon
-  xHandle: "@YourHandle",                  // optional
-  featured: true,                          // optional — highlighted card
-  logo: "https://yourbuild.com/logo.png",  // optional
-  tags: ["Award or context label"],        // optional — e.g. hackathon name, "Built on Medo"
-}
-```
-
-- Set `featured: true` in `builds` for the 6-slot featured section (everything else → compact grid).
-- Set `featured: true` in `hackathonBuilds` to render as a highlighted `BuildCard` (e.g. ScopeAI award winner).
-- All three sections render in `BuildsTab.tsx` automatically via exported filters.
-- `tags` render as yellow badges on `BuildCard` and `CompactCard` in the live UI.
+Some are live. Some are paused. Some were hackathon builds. Some were experiments. All of them are part of how I think, learn, and improve.
 
 ---
 
-## SEO & Discoverability
+## My capabilities
 
-- Crawlable routes: `/builds`, `/about`, `/experience`, `/blog`, `/ai`, `/contact`
-- `public/llms.txt` — AI-readable profile (identity, products, awards, contact)
-- `public/sitemap.xml` + `public/robots.txt` (Google, Bing, GPTBot, PerplexityBot allowed)
-- JSON-LD `Person` + `WebSite` schemas in `app/layout.tsx` via `lib/jsonLd.ts`
-- Submit sitemap in [Google Search Console](https://search.google.com/search-console) after deploy
+### Product
 
----
+- Product strategy
+- Product positioning
+- Opportunity discovery
+- MVP scoping
+- Feature prioritisation
+- Monetisation thinking
+- Product audits
+- Rebuild vs focused-improvement decisions
 
-## Design System
+### Engineering
 
-| Token             | Value                        |
-|------------------|------------------------------|
-| Background        | `#FAFAF7`                   |
-| Card              | `#FFFFFF`                   |
-| Yellow accent     | `#E8B84B`                   |
-| Yellow dark       | `#C99A2E`                   |
-| Ink (primary)     | `#0A0A08`                   |
-| Ink (secondary)   | `#4A4844`                   |
-| Ink (muted)       | `#8A8880`                   |
-| Border            | `#E8E6DF`                   |
-| Font display      | Freight Display Pro          |
-| Font body         | Satoshi                      |
-| Font mono         | JetBrains Mono               |
+- AI-native product development
+- System architecture
+- Full-stack SaaS development
+- Developer tools
+- RAG systems
+- API integrations
+- On-chain product development
+- Repository analysis and codebase planning
 
----
+### Design
 
-## Track Record
+- Product-led visual direction
+- UX thinking
+- Design systems
+- Responsive product design
+- Interface critique
+- Design psychology
+- Font pairing and visual language
 
-- **ScopeAI** — Content Creative Award winner, Build with Medo hackathon (Devpost).
-- **BlindspotLab** — AI-native build studio. 30+ products shipped solo.
-- **Taiku NFT** — Grew community from 3 → 9,000+ followers in 3.5 days.
-- **SkylosChain** — Lifted engagement from 5% → 95% in 14 days.
-- **Arcapush** — Startup discovery registry, 62+ indexed, 1.5k/mo traffic.
+### Strategy
 
----
-
-## Deployment
-
-Deployed on [Vercel](https://vercel.com). Push to `main` triggers auto-deploy.
-
-```bash
-# One-click deploy
-vercel --prod
-```
-
-Set `NEXT_PUBLIC_SITE_URL=https://mojeeb.xyz` in Vercel environment variables if needed.
+- Web2 and Web3 growth strategy
+- Product storytelling
+- Builder positioning
+- Distribution thinking
+- Cold outreach strategy
+- Hackathon strategy
+- Turning useful content into lasting products
 
 ---
 
-## Connect
+## Tech stack
 
-| Platform  | Handle / Link                                |
-|----------|----------------------------------------------|
-| X        | [@tmojeeb](https://x.com/tmojeeb)        |
-| GitHub   | [mojeebdev](https://github.com/mojeebdev)    |
-| YouTube  | [@Tmojeeb](https://youtube.com/@tmojeeb)  |
-| LinkedIn | [tmojeeb](https://linkedin.com/in/tmojeeb) |
-| Email    | hello@mojeeb.xyz                         |
-| Studio   | [blindspotlab.xyz](https://blindspotlab.xyz) |
+### Core
+
+`Next.js` · `TypeScript` · `React` · `Supabase` · `Firebase` · `Prisma` · `PostgreSQL` · `MySQL`
+
+### AI
+
+`OpenAI` · `Claude` · `Gemini` · `OpenRouter` · `RAG` · `Prompt Engineering`
+
+### Web3
+
+`Solidity` · `Base` · `Wagmi` · `On-chain integrations`
+
+### Tools I work with
+
+`ChatGPT` · `Codex` · `Claude Code` · `GitHub` · `Vercel`
+
+I have also worked with MongoDB and continue to explore tools based on what each product actually needs.
 
 ---
 
-*BlindspotLab — You have the idea. We ship the product.*
+## How I think
+
+I believe the input shapes the output.
+
+> **Your input is the AI output.**
+
+AI can move fast, but speed without judgement creates noise. My role is to bring the thinking, context, structure, taste, and discipline that make the final product intentional.
+
+I do not believe every product needs a rebuild.
+
+Before rebuilding, I ask:
+
+1. What is the exact problem?
+2. What outcome do we need?
+3. What must remain untouched?
+4. Can a focused fix solve it?
+5. What new risks will a rebuild introduce?
+
+I prefer the smallest strong move over unnecessary complexity.
+
+---
+
+## DAETO Framework
+
+I use **DAETO** to move from an unclear idea to a product that can be built, shipped, measured, and improved.
+
+### D — Discovery
+Understand the problem, user, context, market, constraints, and real opportunity.
+
+### A — Approach
+Choose the right product direction, positioning, architecture, and execution path.
+
+### E — Execution
+Build the smallest strong version with clear priorities and disciplined scope.
+
+### T — Tracking
+Measure what is working, what is failing, and what users are actually doing.
+
+### O — Optimisation
+Improve the product based on evidence, not assumptions or random feature additions.
+
+---
+
+## My working principles
+
+- **Just write it down, build it, ship it.**
+- Think before prompting.
+- Understand before changing.
+- Improve before rebuilding.
+- Use AI as leverage, not as a replacement for judgement.
+- Do not let useful ideas vanish into the timeline.
+- Build products that are clear, useful, and intentional.
+
+I describe myself as a **productivity-first developer** because I care about making progress, but I also care about whether the progress is moving in the right direction.
+
+---
+
+## Current direction
+
+I’m focused on becoming one of the most sought-after **AI Product Engineers, AI Consultants, and System Architects** in the years ahead.
+
+Right now, I’m building, learning through real products, competing in hackathons, sharpening my systems thinking, and turning the work into stronger opportunities, useful connections, and revenue.
+
+---
+
+## Find me
+
+- Portfolio: [mojeeb.xyz](https://mojeeb.xyz)
+- X: [@MojeebMotion](https://x.com/MojeebMotion)
+- LinkedIn: [@tmojeeb](https://www.linkedin.com/in/tmojeeb)
+- GitHub: [@mojeebdev](https://github.com/mojeebdev)
+- Devpost: [@mojeebdev](https://devpost.com/mojeebdev)
+- YouTube: [@tmojeeb](https://youtube.com/@tmojeeb)
+
+---
+
+> I build at the edge of thought.
