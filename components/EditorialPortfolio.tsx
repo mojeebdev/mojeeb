@@ -49,9 +49,14 @@ function ProjectVisual({ project, index }: { project: Project; index: number }) 
   );
 }
 
-function WorkLink({ project, label = "View project" }: { project: Project; label?: string }) {
+function WorkLink({ project, label = "Visit project" }: { project: Project; label?: string }) {
   if (!project.url) return null;
   return <a className="work-link" href={project.url} target="_blank" rel="noopener noreferrer">{label} <ExternalArrow /></a>;
+}
+
+function ProfileLink({ project }: { project: Project }) {
+  if (!project.selected) return null;
+  return <Link className="secondary-link" href={`/projects/${project.slug}`}>Project profile &#8594;</Link>;
 }
 
 function CompactWork({ project, index }: { project: Project; index: number }) {
@@ -63,7 +68,10 @@ function CompactWork({ project, index }: { project: Project; index: number }) {
         <h3>{project.name}</h3>
         {project.description && <p>{project.description}</p>}
         {project.snapshot && <p className="project-fact">{project.snapshot}</p>}
-        <WorkLink project={project} />
+        <div className="route-card__links">
+          <WorkLink project={project} />
+          <ProfileLink project={project} />
+        </div>
       </div>
     </article>
   );
@@ -92,10 +100,9 @@ export default function EditorialPortfolio() {
               <span className="heroTitleLine">ENGINEER</span>
             </h1>
             <div className="hero-portrait">
-              <Image src="/mojeeb_headshot.png" alt="Portrait of Mojeeb Titilayo" fill priority sizes="(max-width: 700px) 58vw, 34vw" />
+              <Image src="/mojeeb_headshot.png" alt="Portrait of Mojeeb Titilayo" fill priority sizes="(max-width: 700px) 58vw, 36vw" />
             </div>
             <div className="hero-object hero-object--orbit" aria-hidden="true"><span /></div>
-            <div className="hero-object hero-object--axis" aria-hidden="true"><i /><i /><i /></div>
             <p className="hero-location">Ota, Nigeria</p>
             <div className="hero-meta">
               <span>&copy;2026</span>
@@ -110,9 +117,9 @@ export default function EditorialPortfolio() {
             <h2 id="intro-title">Hey!</h2>
             <p>I&apos;m Mojeeb, an AI Product Engineer, System Architect and Product Strategist based in Nigeria.</p>
             <p>I turn rough ideas, useful information and overlooked problems into clear, buildable products across AI, SaaS, developer tools and Web3.</p>
-            <Link className="solid-link" href="/builds">Selected work <span aria-hidden="true">&#8595;</span></Link>
+            <Link className="solid-link" href="/work">Selected work <span aria-hidden="true">&#8595;</span></Link>
           </div>
-          <p className="intro-side">Founder, BlindspotLab<br />Product strategist<br />70 repositories</p>
+          <p className="intro-side">Founder, BlindspotLab<br />40+ shipped builds<br />70 repositories</p>
         </section>
 
         <section id="capabilities" className="capabilities-section panel" aria-labelledby="capabilities-title">
@@ -147,7 +154,10 @@ export default function EditorialPortfolio() {
               <p>{blindspotLab.description}</p>
               {blindspotLab.snapshot && <p className="project-fact">{blindspotLab.snapshot}</p>}
               {blindspotLab.portfolioValue && <p className="lead-value">{blindspotLab.portfolioValue}</p>}
-              <WorkLink project={blindspotLab} label="Visit BlindspotLab" />
+              <div className="route-card__links">
+                <WorkLink project={blindspotLab} label="Visit BlindspotLab" />
+                <ProfileLink project={blindspotLab} />
+              </div>
             </div>
           </article>
 
@@ -160,7 +170,10 @@ export default function EditorialPortfolio() {
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
                   {project.snapshot && <p className="project-fact">{project.snapshot}</p>}
-                  <WorkLink project={project} />
+                  <div className="route-card__links">
+                    <WorkLink project={project} />
+                    <ProfileLink project={project} />
+                  </div>
                   {project.sourceUrl && <a className="secondary-link" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>}
                   {project.packageUrl && <a className="secondary-link" href={project.packageUrl} target="_blank" rel="noopener noreferrer">npm &#8599;</a>}
                 </div>
@@ -187,7 +200,7 @@ export default function EditorialPortfolio() {
           <div className="section-heading archive-heading">
             <p className="section-kicker">05 / Complete project index</p>
             <h2 id="archive-title">The complete<br /><em>build record.</em></h2>
-            <p>Major products, experiments, paused systems and cultural builds - each with its confirmed status and public destination where one exists.</p>
+            <p>Major products, experiments, paused systems and cultural builds — each with its confirmed status and public destination where one exists.</p>
           </div>
           <ProjectArchive />
         </section>
@@ -215,7 +228,7 @@ export default function EditorialPortfolio() {
 
       <footer className="site-footer">
         <div className="footer-title"><span>Mojeeb</span><strong>AI Product Engineer<br />System Architect</strong></div>
-        <nav aria-label="Footer navigation"><Link href="/">Home</Link><Link href="/builds">Selected Work</Link><Link href="/builds">Projects</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav>
+        <nav aria-label="Footer navigation"><Link href="/">Home</Link><Link href="/work">Selected Work</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/approach">Approach</Link><Link href="/contact">Contact</Link></nav>
         <div className="footer-socials"><a href="https://x.com/MojeebMotion" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.linkedin.com/in/tmojeeb" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/mojeebdev" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://devpost.com/mojeebdev" target="_blank" rel="noopener noreferrer">Devpost</a></div>
         <p>&copy; {new Date().getFullYear()} Mojeeb Titilayo</p>
       </footer>
