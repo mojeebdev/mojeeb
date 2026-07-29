@@ -57,7 +57,7 @@ export default function MobileNavigation() {
   };
 
   return (
-    <header className="floating-nav">
+    <header className="floating-nav" data-open={menuOpen ? "true" : "false"}>
       <Link href="/" className="floating-nav__name" aria-label="Mojeeb home">Mojeeb</Link>
       <button ref={menuButton} type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="site-menu">
         <span className="sr-only">{menuOpen ? "Close" : "Open"} menu</span>
