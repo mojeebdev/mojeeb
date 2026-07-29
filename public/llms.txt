@@ -15,8 +15,9 @@
 ## Canonical routes
 
 - Home: https://mojeeb.xyz/
+- Selected work: https://mojeeb.xyz/work
+- Projects and experiments: https://mojeeb.xyz/projects
 - About: https://mojeeb.xyz/about
-- Builds: https://mojeeb.xyz/builds
 - Experience: https://mojeeb.xyz/experience
 - AI product engineering: https://mojeeb.xyz/ai
 - Approach: https://mojeeb.xyz/approach
@@ -38,8 +39,8 @@ Confirmed portfolio claim: built and shipped 40+ products, tools, experiments, a
 - Capself - https://capself.co - Personal Development Operating System with four Paystack subscription tiers.
 - Whate - https://whate.app - Meal-discovery and meal-planning product with 10,516 meals in the July 2026 snapshot.
 - Admon - https://admon.peerfix.dev - Web3 builder-identity and GitHub-credential product.
-- NAGIMU - https://nagimu.vercel.app - Live product experiment; exact purpose and feature set not yet confirmed.
-- CommitCar - https://commitcar.vercel.app - GitHub-commit-based car NFT product and earlier foundation behind Admon.
+
+NAGIMU and CommitCar are confirmed parts of Mojeeb's build history, but the current build index does not confirm public URLs for them. No public URLs should be inferred.
 
 ## Product practice
 
