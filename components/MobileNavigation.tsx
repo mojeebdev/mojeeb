@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
   ["Home", "/"],
-  ["Selected Work", "/builds"],
-  ["Projects", "/builds"],
+  ["Selected Work", "/work"],
+  ["Projects", "/projects"],
   ["About", "/about"],
   ["Approach", "/approach"],
   ["Contact", "/contact"],
@@ -14,6 +15,7 @@ const links = [
 
 export default function MobileNavigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   const menuButton = useRef<HTMLButtonElement>(null);
   const menuPanel = useRef<HTMLDivElement>(null);
 
@@ -64,7 +66,9 @@ export default function MobileNavigation() {
       {menuOpen && (
         <div id="site-menu" ref={menuPanel} className="site-menu" role="dialog" aria-modal="true" aria-label="Site navigation">
           <nav aria-label="Primary">
-            {links.map(([label, href]) => <Link key={`${label}-${href}`} href={href} onClick={closeMenu}>{label}</Link>)}
+            {links.map(([label, href]) => (
+              <Link key={`${label}-${href}`} href={href} onClick={closeMenu} aria-current={pathname === href || (href !== "/" && pathname.startsWith(`${href}/`)) ? "page" : undefined}>{label}</Link>
+            ))}
           </nav>
           <div className="site-menu__socials" aria-label="Social links">
             <a href="https://x.com/MojeebMotion" target="_blank" rel="noopener noreferrer">X &#8599;</a>
