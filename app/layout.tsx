@@ -4,6 +4,7 @@ import "./portfolio-fixes.css";
 import "./animation-fixes.css";
 import "./hero-final.css";
 import "./motion-system.css";
+import "./intro-final.css";
 import MotionDirector from "@/components/MotionDirector";
 import { freightDisplay } from "@/lib/fonts";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
