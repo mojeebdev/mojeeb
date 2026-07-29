@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import PortfolioShell from "@/components/PortfolioShell";
-import ContactTab from "@/components/ContactTab";
-import { pageMetadata } from "@/lib/site";
+import { ContactRoute } from "@/components/RoutePage";
+import { BASE_URL } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata.contact;
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact Mojeeb Titilayo for AI product engineering, system architecture, strategy and product build work.",
+  alternates: { canonical: `${BASE_URL}/contact` },
+};
 
 export default function ContactPage() {
-  return (
-    <PortfolioShell activeTab="contact">
-      <ContactTab />
-    </PortfolioShell>
-  );
+  return <ContactRoute />;
 }

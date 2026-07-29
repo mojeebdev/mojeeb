@@ -1,30 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { freightDisplay, jetbrainsMono } from "@/lib/fonts";
+import { freightDisplay } from "@/lib/fonts";
 import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Mojeeb Titilayo | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    default: "Mojeeb Titilayo — AI Product Engineer & System Architect",
     template: "%s | Mojeeb Titilayo",
   },
   description:
-    "Mojeeb is an AI Product Engineer, Expert Vibe Coder, and Strategist. I build at the edge of thought. Founder of BlindspotLab. 30+ shipped products including Arcapush, Whate, PullChain, AngelVow, Dearly, RoastURL, FirstTx, and more. Solo. Fast. Real use cases.",
+    "AI Product Engineer, System Architect and Strategist building intentional products across AI, SaaS, developer tools and Web3.",
   keywords: [
-    "Mojeeb", "Mojeeb Titilayo", "tmojeeb", "tmojeeb",
-    "AI Product Engineer", "Expert Vibe Coder", "Strategist",
-    "BlindspotLab", "Arcapush", "Whate", "AngelVow", "PullChain",
-    "FirstTx", "RoastURL", "ArcaPrompt", "PromptRank", "XUnfollow",
-    "Dearly", "Nigeria Tech", "Prompt Engineering", "LLM Integration",
-    "Solo Founder", "Base Chain", "Next.js",
+    "Mojeeb", "Mojeeb Titilayo", "AI Product Engineer",
+    "System Architect", "AI Strategist", "Web3 Strategist",
+    "BlindspotLab", "Arcapush", "StackBrief", "Revel",
+    "Developer Tools", "Prompt Engineering", "Product Strategy",
+    "MCP", "RAG", "Next.js", "TypeScript",
   ],
   authors: [{ name: "Mojeeb Titilayo", url: BASE_URL }],
   creator: "Mojeeb Titilayo",
   publisher: "BlindspotLab",
 
-  alternates: { canonical: `${BASE_URL}/builds` },
+  alternates: { canonical: BASE_URL },
 
   robots: {
     index: true,
@@ -39,39 +38,35 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "icon", url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" }],
+    icon: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
+    shortcut: [{ url: "/mojeeb_headshot.png", type: "image/png" }],
+    apple: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
   },
 
 
   openGraph: {
     type: "profile",
-    url: `${BASE_URL}/builds`,
+    url: BASE_URL,
     siteName: "Mojeeb",
     locale: "en_US",
-    title: "Mojeeb | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    title: "Mojeeb Titilayo — AI Product Engineer & System Architect",
     description:
-      "I build at the edge of thought. 30+ shipped AI and Web3 products. Solo. Fast. Real use cases. Founder of BlindspotLab — arcapush.com, whate.app, angelvow.xyz, firsttx.xyz, roasturl.xyz and more.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mojeeb Titilayo" }],
+      "AI Product Engineer, System Architect and Strategist building intentional products across AI, SaaS, developer tools and Web3.",
+    images: [{ url: "/mojeeb-editorial-og.jpg", width: 1200, height: 630, alt: "Mojeeb Titilayo — AI Product Engineer, System Architect, AI and Web3 Strategist" }],
     firstName: "Mojeeb",
     lastName: "Titilayo",
-    username: "tmojeeb",
+    username: "MojeebMotion",
   },
 
 
   twitter: {
     card: "summary_large_image",
-    site: "@tmojeeb",
-    creator: "@tmojeeb",
-    title: "Mojeeb | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    site: "@MojeebMotion",
+    creator: "@MojeebMotion",
+    title: "Mojeeb Titilayo — AI Product Engineer & System Architect",
     description:
-      "I build at the edge of thought. 30+ shipped AI and Web3 products. Solo. Fast. Founder of BlindspotLab — arcapush.com, whate.app, roasturl.xyz and more.",
-    images: ["/og-image.png"],
+      "AI Product Engineer, System Architect and Strategist building intentional products across AI, SaaS, developer tools and Web3.",
+    images: ["/mojeeb-editorial-og.jpg"],
   },
 
 
@@ -79,7 +74,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#E8B84B",
+  themeColor: "#F4F0E8",
   width: "device-width",
   initialScale: 1,
 };
@@ -99,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={`${freightDisplay.variable} ${jetbrainsMono.variable}`}>
+      <body className={freightDisplay.variable}>
         {children}
       </body>
     </html>

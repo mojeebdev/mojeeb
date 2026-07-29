@@ -1,5 +1,2 @@
-import { permanentRedirect } from "next/navigation";
-
-export default function Home() {
-  permanentRedirect("/builds");
-}
+import EditorialPortfolio from "@/components/EditorialPortfolio";
+export default function Home() { return <EditorialPortfolio />; }
