@@ -4,9 +4,8 @@ import type { ReactNode } from "react";
 import MobileNavigation from "@/components/MobileNavigation";
 import ProjectArchive from "@/components/ProjectArchive";
 import { displayProjectStatus, ExternalArrow, prettyCategory } from "@/components/ProjectPrimitives";
-import { projects, type Project, type ProjectCategory } from "@/lib/projects";
+import { projects, selectedProjects, type Project, type ProjectCategory } from "@/lib/projects";
 
-const selectedProjects = projects.filter((project) => project.selected);
 const aiProjects = projects.filter((project) => project.category.includes("ai")).slice(0, 10);
 
 const capabilities = [
@@ -14,6 +13,14 @@ const capabilities = [
   ["AI Product Engineering", "AI-native SaaS, agents, MCP integrations, RAG, and prompt-led systems."],
   ["System Architecture", "Technical planning, developer tooling, static analysis, and durable product systems."],
   ["Web3 Products", "Smart contracts, Base, onchain identity, credentials, NFTs, and builder platforms."],
+] as const;
+
+const daetoStages = [
+  ["D", "Discovery", "Understand the problem, user, context, constraints, and opportunity."],
+  ["A", "Approach", "Choose the positioning, architecture, and execution path."],
+  ["E", "Execution", "Build the smallest strong version with disciplined scope."],
+  ["T", "Tracking", "Measure what works, what fails, and what people actually use."],
+  ["O", "Optimisation", "Improve from evidence instead of random feature additions."],
 ] as const;
 
 const approachNotes = [
@@ -26,7 +33,7 @@ function RouteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-title"><span>Mojeeb</span><strong>AI Product Engineer<br />System Architect</strong></div>
-      <nav aria-label="Footer navigation"><Link href="/">Home</Link><Link href="/builds">Builds</Link><Link href="/experience">Experience</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></nav>
+      <nav aria-label="Footer navigation"><Link href="/">Home</Link><Link href="/work">Selected Work</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/approach">Approach</Link><Link href="/contact">Contact</Link></nav>
       <div className="footer-socials"><a href="https://x.com/MojeebMotion" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.linkedin.com/in/tmojeeb" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/mojeebdev" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://devpost.com/mojeebdev" target="_blank" rel="noopener noreferrer">Devpost</a></div>
       <p>&copy; {new Date().getFullYear()} Mojeeb Titilayo</p>
     </footer>
@@ -66,7 +73,10 @@ function ProjectCard({ project }: { project: Project }) {
       <h2>{project.name}</h2>
       {project.description && <p>{project.description}</p>}
       {project.snapshot && <p className="project-fact">{project.snapshot}</p>}
-      {project.url && <a className="work-link" href={project.url} target="_blank" rel="noopener noreferrer">Visit project <ExternalArrow /></a>}
+      <div className="route-card__links">
+        {project.selected && <Link className="secondary-link" href={`/projects/${project.slug}`}>Project profile &#8594;</Link>}
+        {project.url && <a className="work-link" href={project.url} target="_blank" rel="noopener noreferrer">Visit project <ExternalArrow /></a>}
+      </div>
     </article>
   );
 }
@@ -75,28 +85,42 @@ export function AboutRoute() {
   return (
     <RouteShell
       kicker="About"
-      title="Mojeeb Titilayo"
-      intro="AI Product Engineer, System Architect and Product Strategist based in Nigeria, building across AI, SaaS, developer tools and Web3."
+      title="Who is Mojeeb Titilayo?"
+      intro="Mojeeb is an AI Product Engineer, System Architect and Product Strategist based in Nigeria, building across AI, SaaS, developer tools and Web3."
       image
     >
       <section className="route-band route-band--split">
         <h2>40+ shipped builds across 70 repositories.</h2>
         <p>Mojeeb turns rough ideas, useful information and overlooked problems into clear, buildable products. The portfolio separates flagship products from experiments, inactive archives and paused work so the record stays honest.</p>
       </section>
+      <section className="route-grid route-grid--wide" aria-label="Core capabilities">
+        {capabilities.map(([title, copy]) => <article className="route-card" key={title}><h2>{title}</h2><p>{copy}</p></article>)}
+      </section>
     </RouteShell>
   );
 }
 
-export function BuildsRoute() {
+export function WorkRoute() {
   return (
     <RouteShell
-      kicker="Builds"
-      title="Selected work and complete build record."
-      intro="Flagship products, developer tools, SaaS systems, Web3 builds, experiments, cultural projects and paused work, kept from the build index source of truth."
+      kicker="Selected Work"
+      title="What does Mojeeb build?"
+      intro="Selected AI, SaaS, developer-tool and Web3 products that show product strategy, architecture, engineering and disciplined execution."
     >
       <section className="route-grid" aria-label="Selected projects">
-        {selectedProjects.slice(0, 8).map((project) => <ProjectCard key={project.slug} project={project} />)}
+        {selectedProjects.map((project) => <ProjectCard key={project.slug} project={project} />)}
       </section>
+    </RouteShell>
+  );
+}
+
+export function ProjectsRoute() {
+  return (
+    <RouteShell
+      kicker="Projects"
+      title="Projects, experiments and shipped ideas."
+      intro="Mojeeb has built and shipped 40+ products, tools, experiments and platforms across AI, developer tools, SaaS and Web3."
+    >
       <section className="archive-section route-archive" aria-labelledby="route-archive-title">
         <div className="section-heading archive-heading">
           <p className="section-kicker">Complete index</p>
@@ -141,10 +165,17 @@ export function ApproachRoute() {
   return (
     <RouteShell
       kicker="Approach"
-      title="Build discipline before rebuild energy."
-      intro="The portfolio reflects a simple bias: understand the problem, preserve what works, then make the smallest strong move."
+      title="How I approach building products."
+      intro="Understand the problem, preserve what works, then make the smallest strong move."
     >
-      <section className="route-grid route-grid--wide">
+      <section className="route-band route-band--split">
+        <h2>What is the DAETO framework?</h2>
+        <p>DAETO is Mojeeb Titilayo&apos;s five-stage product framework covering Discovery, Approach, Execution, Tracking and Optimisation.</p>
+      </section>
+      <section className="route-grid" aria-label="DAETO stages">
+        {daetoStages.map(([letter, title, copy]) => <article className="route-card" key={letter}><p className="section-kicker">{letter}</p><h2>{title}</h2><p>{copy}</p></article>)}
+      </section>
+      <section className="route-grid route-grid--wide" aria-label="Product principles">
         {approachNotes.map(([title, copy]) => <article className="route-card" key={title}><h2>{title}</h2><p>{copy}</p></article>)}
       </section>
     </RouteShell>
@@ -161,6 +192,42 @@ export function ContactRoute() {
       <section className="route-band route-band--contact">
         <a href="mailto:hello@mojeeb.xyz">hello@mojeeb.xyz <ExternalArrow /></a>
         <p>Also find Mojeeb as @MojeebMotion on X and @mojeebdev on GitHub and Devpost.</p>
+      </section>
+    </RouteShell>
+  );
+}
+
+export function ProjectDetailRoute({ project }: { project: Project }) {
+  const category = prettyCategory(project.category[0]);
+  const confirmedDetails = [project.snapshot, project.origin, project.achievement, project.outcome, project.portfolioValue].filter(Boolean) as string[];
+
+  return (
+    <RouteShell
+      kicker={`${category} / ${displayProjectStatus(project)}`}
+      title={project.name}
+      intro={project.description ?? "A documented build in Mojeeb Titilayo's product portfolio. Details are intentionally limited to confirmed information."}
+    >
+      <section className="route-band">
+        <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">{project.name}</span>
+        </nav>
+        <div className="project-detail-grid">
+          <h2>Confirmed project profile.</h2>
+          <div className="project-detail-copy">
+            {project.description && <p>{project.description}</p>}
+            {confirmedDetails.map((detail) => <p key={detail}>{detail}</p>)}
+            <div className="project-detail-meta">
+              <span>{category}</span>
+              <span>{displayProjectStatus(project)}</span>
+              {project.role && <span>{project.role}</span>}
+            </div>
+            <div className="route-card__links">
+              {project.url && <a className="work-link" href={project.url} target="_blank" rel="noopener noreferrer">Visit live project <ExternalArrow /></a>}
+              {project.sourceUrl && <a className="secondary-link" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>}
+              {project.packageUrl && <a className="secondary-link" href={project.packageUrl} target="_blank" rel="noopener noreferrer">npm &#8599;</a>}
+            </div>
+          </div>
+        </div>
       </section>
     </RouteShell>
   );
