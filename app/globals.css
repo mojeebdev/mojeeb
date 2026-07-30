@@ -169,7 +169,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-copy { display: grid; min-width: 0; gap: .1rem; }
 .project-name { font-size: 1rem; font-weight: 700; letter-spacing: -.035em; }
 .project-description { overflow: hidden; color: var(--soft-ink); font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
-.project-mark { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); color: var(--accent); font-size: .62rem; font-weight: 700; }
+.project-mark,
+.project-logo { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); color: var(--accent); background: rgb(248 246 240 / .48); font-size: .62rem; font-weight: 700; line-height: 1; text-transform: uppercase; }
+.project-logo { position: relative; overflow: hidden; }
+.project-logo img { position: relative; z-index: 1; width: 100%; height: 100%; padding: 18%; object-fit: contain; }
+.project-logo__fallback { display: none; }
+.project-logo--sm { width: 34px; height: 34px; font-size: .62rem; }
+.project-logo--md { width: 46px; height: 46px; font-size: .78rem; }
+.project-logo--lg { width: 74px; height: 74px; font-size: 1.15rem; }
+.project-logo--initials { letter-spacing: .04em; }
 .selected-label { margin-left: .35rem; padding: .14rem .28rem; border: 1px solid var(--accent); color: var(--accent); font-size: .55rem; letter-spacing: .08em; text-transform: uppercase; vertical-align: middle; }
 .project-categories { margin: 0; color: var(--soft-ink); font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .status { justify-self: start; padding: .28rem .48rem; border: 1px solid var(--line); font-size: .62rem; font-weight: 700; line-height: 1.15; }

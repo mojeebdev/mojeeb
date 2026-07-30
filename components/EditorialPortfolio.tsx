@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects, type Project } from "@/lib/projects";
 import MobileNavigation from "@/components/MobileNavigation";
+import ProjectLogo from "@/components/ProjectLogo";
 import { displayProjectStatus, ExternalArrow, prettyCategory } from "@/components/ProjectPrimitives";
 
 const strategyCapabilities = [
@@ -58,7 +59,7 @@ function ProjectVisual({ project }: { project: Project }) {
 
   return (
     <div className="dual-project-visual dual-project-visual--type" aria-hidden="true">
-      <span>{project.name.slice(0, 2).toUpperCase()}</span>
+      <ProjectLogo project={project} size="lg" />
       <small>{prettyCategory(project.category[0])}</small>
     </div>
   );
@@ -69,6 +70,7 @@ function SelectedProjectCard({ project, dark = false }: { project: Project; dark
     <article className={`dual-work-card${dark ? " dual-work-card--dark" : ""}`}>
       <ProjectVisual project={project} />
       <div className="dual-work-card__copy">
+        <ProjectLogo project={project} size="md" className="dual-work-card__logo" />
         <p className="section-kicker">{prettyCategory(project.category[0])} / {displayProjectStatus(project)}</p>
         <h3>{project.name}</h3>
         {project.description && <p>{project.description}</p>}
@@ -161,9 +163,9 @@ export default function EditorialPortfolio() {
           </div>
 
           <div className="dual-project-list" aria-label="Additional selected projects">
-            {projectPreview.map((project, index) => (
+            {projectPreview.map((project) => (
               <article className="dual-project-row" key={project.slug}>
-                <span>{String(index + 3).padStart(2, "0")}</span>
+                <ProjectLogo project={project} size="sm" />
                 <div>
                   <p className="section-kicker">{prettyCategory(project.category[0])} / {displayProjectStatus(project)}</p>
                   <h3>{project.name}</h3>
@@ -180,7 +182,12 @@ export default function EditorialPortfolio() {
         <section className="dual-capabilities panel" aria-labelledby="capabilities-title">
           <div className="dual-section-heading">
             <p className="section-kicker">Capabilities</p>
-            <h2 id="capabilities-title">Two disciplines.<br /><em>One product practice.</em></h2>
+            <h2 id="capabilities-title" className="capabilities-title">
+              <span>Two</span>
+              <span>disciplines.</span>
+              <em>One product</em>
+              <em>practice.</em>
+            </h2>
           </div>
 
           <div className="capability-track capability-track--strategy">

@@ -4,6 +4,10 @@ export type ProjectCategory = "flagship" | "ai" | "developer-tools" | "saas" | "
 export type Project = {
   slug: string;
   name: string;
+  logo?: {
+    src: string;
+    alt?: string;
+  };
   url?: string;
   description?: string;
   category: ProjectCategory[];

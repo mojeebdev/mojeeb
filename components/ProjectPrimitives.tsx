@@ -1,4 +1,5 @@
 import type { Project, ProjectStatus } from "@/lib/projects";
+import { getProjectInitials } from "@/lib/projectLogos";
 
 const statusNames: Record<ProjectStatus, string> = {
   live: "Live",
@@ -15,7 +16,7 @@ export const displayProjectStatus = (project: Project) =>
   project.statusLabel ?? statusNames[project.status];
 
 export function ProjectMark({ project }: { project: Project }) {
-  const letters = project.name.replace(/[^\p{L}\p{N}]/gu, "").slice(0, 2).toUpperCase();
+  const letters = getProjectInitials(project);
   return <span className="project-mark" aria-hidden="true">{letters}</span>;
 }
 

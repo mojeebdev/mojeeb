@@ -8,10 +8,10 @@ import {
   type ProjectCategory,
   type ProjectStatus,
 } from "@/lib/projects";
+import ProjectLogo from "@/components/ProjectLogo";
 import {
   ExternalArrow,
   prettyCategory,
-  ProjectMark,
   StatusBadge,
 } from "@/components/ProjectPrimitives";
 
@@ -41,7 +41,7 @@ const statusFilters: ["all" | ProjectStatus, string][] = [
 function ArchiveRow({ project }: { project: Project }) {
   const content = (
     <>
-      <ProjectMark project={project} />
+      <ProjectLogo project={project} size="sm" />
       <span className="project-copy">
         <span className="project-name">
           {project.name}

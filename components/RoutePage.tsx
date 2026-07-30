@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import MobileNavigation from "@/components/MobileNavigation";
 import ProjectArchive from "@/components/ProjectArchive";
+import ProjectLogo from "@/components/ProjectLogo";
 import { displayProjectStatus, ExternalArrow, prettyCategory } from "@/components/ProjectPrimitives";
 import { projects, selectedProjects, type Project, type ProjectCategory } from "@/lib/projects";
 
@@ -69,6 +70,7 @@ function ProjectCard({ project }: { project: Project }) {
   const category = prettyCategory(project.category[0] as ProjectCategory);
   return (
     <article className="route-card">
+      <ProjectLogo project={project} size="md" className="route-card__logo" />
       <p className="section-kicker">{category} / {displayProjectStatus(project)}</p>
       <h2>{project.name}</h2>
       {project.description && <p>{project.description}</p>}
@@ -212,7 +214,10 @@ export function ProjectDetailRoute({ project }: { project: Project }) {
           <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/work">Work</Link><span aria-hidden="true">/</span><span aria-current="page">{project.name}</span>
         </nav>
         <div className="project-detail-grid">
-          <h2>Confirmed project profile.</h2>
+          <div className="project-detail-heading">
+            <ProjectLogo project={project} size="lg" />
+            <h2>Confirmed project profile.</h2>
+          </div>
           <div className="project-detail-copy">
             {project.description && <p>{project.description}</p>}
             {confirmedDetails.map((detail) => <p key={detail}>{detail}</p>)}

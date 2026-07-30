@@ -335,11 +335,14 @@
   text-align: center;
 }
 
-.dual-project-visual--type span {
-  font-size: clamp(6rem, 14vw, 13rem);
-  font-weight: 900;
-  letter-spacing: -.1em;
-  line-height: .7;
+.dual-project-visual--type .project-logo {
+  width: clamp(7rem, 15vw, 13rem);
+  height: clamp(7rem, 15vw, 13rem);
+  border-color: rgb(255 255 255 / .5);
+  color: #fff;
+  background: rgb(255 255 255 / .08);
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -.06em;
 }
 
 .dual-project-visual--type small {
@@ -353,6 +356,16 @@
   display: grid;
   gap: 1rem;
   padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.dual-work-card__logo {
+  margin-bottom: .35rem;
+}
+
+.dual-work-card--dark .project-logo {
+  border-color: rgb(255 255 255 / .22);
+  color: var(--dual-paper-2);
+  background: rgb(255 255 255 / .08);
 }
 
 .dual-work-card__copy h3 {
@@ -440,19 +453,47 @@
 
 .dual-capabilities {
   display: grid;
-  grid-template-columns: minmax(260px, .68fr) 1fr 1fr;
+  grid-template-columns: minmax(0, .68fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
   background: var(--dual-paper-2);
 }
 
+.dual-capabilities > * {
+  min-width: 0;
+}
+
 .dual-capabilities .dual-section-heading {
   display: block;
+  max-width: 100%;
+  min-width: 0;
   margin: 0;
+  container-type: inline-size;
 }
 
 .dual-capabilities .dual-section-heading > p:last-child {
   display: none;
+}
+
+.dual-capabilities .capabilities-title {
+  display: grid;
+  max-width: 100%;
+  font-size: clamp(3.6rem, 5vw, 5.8rem);
+  font-size: clamp(3.6rem, 18cqw, 5.8rem);
+  letter-spacing: -.035em;
+  line-height: .86;
+}
+
+.dual-capabilities .capabilities-title span,
+.dual-capabilities .capabilities-title em {
+  display: block;
+  min-width: 0;
+}
+
+@media (min-width: 1081px) {
+  .dual-capabilities .capabilities-title {
+    font-size: clamp(2.8rem, 21cqw, 5.8rem);
+  }
 }
 
 .capability-track {
