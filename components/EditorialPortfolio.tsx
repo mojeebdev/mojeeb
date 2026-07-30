@@ -1,29 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects, type Project } from "@/lib/projects";
-import IntroPortrait from "@/components/IntroPortrait";
 import MobileNavigation from "@/components/MobileNavigation";
-import ProjectArchive from "@/components/ProjectArchive";
 import { displayProjectStatus, ExternalArrow, prettyCategory } from "@/components/ProjectPrimitives";
 
-const capabilityGroups = [
-  ["01", "Product Strategy", ["Product direction", "Positioning", "MVP scoping"]],
-  ["02", "AI Product Engineering", ["AI-native SaaS", "Agents and MCP", "RAG systems"]],
-  ["03", "System Architecture", ["Product systems", "Developer tools", "Technical planning"]],
-  ["04", "Web3 Products", ["Smart contracts", "Onchain identity", "Credential systems"]],
+const strategyCapabilities = [
+  ["Product direction", "Finding the strongest product angle before implementation begins."],
+  ["Positioning", "Making the value, audience, and reason to care immediately clear."],
+  ["MVP scoping", "Choosing the smallest strong version that can prove the product."],
+  ["Product systems", "Designing the structure that lets a product keep improving."],
+] as const;
+
+const engineeringCapabilities = [
+  ["AI product engineering", "Building useful AI-native SaaS, agents, RAG, and MCP workflows."],
+  ["System architecture", "Designing maintainable products, integrations, and technical foundations."],
+  ["Developer tools", "Creating tools that improve understanding, execution, and engineering quality."],
+  ["Web3 products", "Shipping onchain identity, credentials, smart contracts, and builder platforms."],
 ] as const;
 
 const milestones = [
-  ["40+", "Products, tools, experiments and platforms shipped"],
-  ["146", "Products indexed on Arcapush as of July 28, 2026"],
+  ["40+", "products, tools, experiments, and platforms shipped"],
+  ["146", "products indexed on Arcapush as of July 28, 2026"],
   ["500+", "StackBrief downloads as of July 2026"],
-  ["10,516", "Meals indexed by Whate"],
+  ["10,516", "meals indexed by Whate"],
 ] as const;
 
-const thoughts = [
-  ["Your Input Is the AI Output", "Judgement, context, and disciplined prompting determine what AI can actually help make."],
-  ["Improve Before Rebuilding", "The smallest strong move usually beats an unnecessary rewrite. Understand the problem before changing the system."],
-  ["Do Not Let Useful Ideas Disappear", "Study Free and ColdOpen began with a simple instinct: preserve useful information before the timeline takes it away."],
+const principles = [
+  ["Think before prompting", "AI accelerates execution, but context and judgement determine the quality of the result."],
+  ["Improve before rebuilding", "Understand the exact problem and preserve what already works before replacing a system."],
+  ["Make useful ideas compound", "Turn temporary information and overlooked opportunities into lasting products."],
 ] as const;
 
 const projectBySlug = (slug: string) => {
@@ -31,24 +36,6 @@ const projectBySlug = (slug: string) => {
   if (!project) throw new Error(`Missing project: ${slug}`);
   return project;
 };
-
-function ProjectVisual({ project, index }: { project: Project; index: number }) {
-  if (project.visual) {
-    return (
-      <div className="work-visual work-visual--image">
-        <Image src={project.visual} alt={project.visualAlt ?? ""} fill sizes="(max-width: 760px) 100vw, 58vw" />
-      </div>
-    );
-  }
-
-  return (
-    <div className={`work-visual work-visual--type work-visual--${index}`} aria-hidden="true">
-      <span>{String(index + 1).padStart(2, "0")}</span>
-      <strong>{project.name}</strong>
-      <small>{prettyCategory(project.category[0])}</small>
-    </div>
-  );
-}
 
 function WorkLink({ project, label = "Visit project" }: { project: Project; label?: string }) {
   if (!project.url) return null;
@@ -60,18 +47,35 @@ function ProfileLink({ project }: { project: Project }) {
   return <Link className="secondary-link" href={`/projects/${project.slug}`}>Project profile &#8594;</Link>;
 }
 
-function CompactWork({ project, index }: { project: Project; index: number }) {
+function ProjectVisual({ project }: { project: Project }) {
+  if (project.visual) {
+    return (
+      <div className="dual-project-visual dual-project-visual--image">
+        <Image src={project.visual} alt={project.visualAlt ?? ""} fill sizes="(max-width: 760px) 100vw, 50vw" />
+      </div>
+    );
+  }
+
   return (
-    <article className="compact-work">
-      <ProjectVisual project={project} index={index} />
-      <div>
+    <div className="dual-project-visual dual-project-visual--type" aria-hidden="true">
+      <span>{project.name.slice(0, 2).toUpperCase()}</span>
+      <small>{prettyCategory(project.category[0])}</small>
+    </div>
+  );
+}
+
+function SelectedProjectCard({ project, dark = false }: { project: Project; dark?: boolean }) {
+  return (
+    <article className={`dual-work-card${dark ? " dual-work-card--dark" : ""}`}>
+      <ProjectVisual project={project} />
+      <div className="dual-work-card__copy">
         <p className="section-kicker">{prettyCategory(project.category[0])} / {displayProjectStatus(project)}</p>
         <h3>{project.name}</h3>
         {project.description && <p>{project.description}</p>}
         {project.snapshot && <p className="project-fact">{project.snapshot}</p>}
         <div className="route-card__links">
-          <WorkLink project={project} />
           <ProfileLink project={project} />
+          <WorkLink project={project} />
         </div>
       </div>
     </article>
@@ -80,9 +84,8 @@ function CompactWork({ project, index }: { project: Project; index: number }) {
 
 export default function EditorialPortfolio() {
   const blindspotLab = projectBySlug("blindspotlab");
-  const arcapush = projectBySlug("arcapush");
   const stackBrief = projectBySlug("stackbrief");
-  const compactWork = ["revel", "sitehook", "capself"].map(projectBySlug);
+  const projectPreview = ["arcapush", "revel", "sitehook", "capself", "whate", "admon"].map(projectBySlug);
 
   return (
     <>
@@ -90,149 +93,154 @@ export default function EditorialPortfolio() {
       <MobileNavigation />
 
       <main id="main">
-        <section id="top" className="poster-hero" aria-labelledby="hero-title">
-          <div className="hero-frame">
-            <div className="hero-labels" aria-label="Hero details">
-              <p className="hero-name">Mojeeb Titilayo</p>
-              <p className="hero-role">System Architect</p>
-            </div>
-            <h1 id="hero-title" className="heroTitle">
-              <span className="heroTitleLine">AI PRODUCT</span>
-              <span className="heroTitleLine">ENGINEER</span>
-            </h1>
-            <div className="hero-portrait">
-              <Image src="/mojeeb_headshot.png" alt="Portrait of Mojeeb Titilayo" fill priority sizes="(max-width: 700px) 58vw, 36vw" />
-            </div>
-            <div className="hero-object hero-object--orbit" aria-hidden="true"><span /></div>
-            <p className="hero-location">Ota, Nigeria</p>
-            <div className="hero-meta">
-              <span>&copy;2026</span>
-              <span>/BUILDING SINCE 2014</span>
-            </div>
+        <section className="dual-identity-hero" aria-labelledby="hero-title">
+          <div className="identity-panel identity-panel--strategy" aria-hidden="true" />
+          <div className="identity-panel identity-panel--engineering" aria-hidden="true" />
+
+          <div className="identity-kicker identity-kicker--strategy">
+            <span>I think like a</span>
+            <strong>Product Strategist</strong>
+          </div>
+          <div className="identity-kicker identity-kicker--engineering">
+            <span>I build like an</span>
+            <strong>AI Product Engineer</strong>
+          </div>
+
+          <h1 id="hero-title" className="identity-heading">
+            <span className="identity-line identity-line--strategy">Product<br />Strategist</span>
+            <span className="identity-line identity-line--engineering">AI Product<br />Engineer</span>
+          </h1>
+
+          <figure className="dual-portrait">
+            <Image
+              src="/mojeeb_headshot.png"
+              alt="Mojeeb Titilayo, AI Product Engineer and Product Strategist"
+              fill
+              priority
+              sizes="(max-width: 760px) 70vw, 28vw"
+            />
+          </figure>
+
+          <div className="identity-summary identity-summary--strategy">
+            <p>Product direction, positioning, opportunity discovery, and disciplined MVP decisions.</p>
+            <Link href="/approach">See my approach <span aria-hidden="true">&#8599;</span></Link>
+          </div>
+          <div className="identity-summary identity-summary--engineering">
+            <p>AI-native products, system architecture, developer tools, SaaS, and Web3 execution.</p>
+            <Link href="/work">View selected work <span aria-hidden="true">&#8599;</span></Link>
+          </div>
+
+          <div className="identity-meta">
+            <span>Mojeeb Titilayo · Ota, Nigeria</span>
+            <span>Building since 2014 · Available for selected work</span>
           </div>
         </section>
 
-        <section id="about" className="intro-section intro-editorial panel" aria-labelledby="intro-title">
-          <div className="intro-copy intro-editorial__lead">
-            <h2 id="intro-title">Hey!</h2>
-            <p className="intro-editorial__statement">I&apos;m Mojeeb, a product builder based in Nigeria, turning complex ideas into useful products across AI, SaaS, developer tools and Web3.</p>
+        <section className="identity-proof panel" aria-labelledby="identity-proof-title">
+          <div>
+            <p className="section-kicker">Who is Mojeeb Titilayo?</p>
+            <h2 id="identity-proof-title">Strategy before execution.<br /><em>Systems before noise.</em></h2>
           </div>
-
-          <IntroPortrait />
-
-          <div className="intro-side intro-editorial__detail">
-            <p>I&apos;m an AI Product Engineer, System Architect and Product Strategist with a strong focus on useful systems, clear product direction and disciplined execution.</p>
-            <p>Across 40+ shipped builds, I&apos;ve worked on product studios, discovery platforms, developer tools, agent experiences, SaaS products and onchain systems.</p>
-            <Link className="intro-editorial__link" href="/about">More about me <span aria-hidden="true">&#8599;</span></Link>
+          <div className="identity-proof__answer">
+            <p>Mojeeb Titilayo is an AI Product Engineer, System Architect, and Product Strategist based in Nigeria. He turns rough ideas, useful information, and overlooked problems into clear, buildable products across AI, SaaS, developer tools, and Web3.</p>
+            <p>His work combines product judgement with hands-on engineering: understanding what should be built, designing the system behind it, and shipping the smallest strong version.</p>
+            <Link className="solid-link" href="/about">More about Mojeeb <span aria-hidden="true">&#8599;</span></Link>
           </div>
         </section>
 
-        <section id="capabilities" className="capabilities-section panel" aria-labelledby="capabilities-title">
-          <div className="section-heading">
-            <p className="section-kicker">02 / Capabilities</p>
-            <h2 id="capabilities-title">From idea<br />to <em>useful.</em></h2>
-          </div>
-          <div className="section-illustration section-illustration--system" aria-hidden="true"><span /><span /><span /></div>
-          <div className="capability-list">
-            {capabilityGroups.map(([number, title, items]) => (
-              <article key={title}>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="selected" className="selected-section panel" aria-labelledby="selected-title">
-          <div className="section-heading selected-heading">
-            <p className="section-kicker">03 / Selected work</p>
-            <h2 id="selected-title">Built with<br /><em>real intent.</em></h2>
-            <p>Six products that show the range: a build studio, a discovery platform, developer tooling, agent experience, productized operations and subscription systems.</p>
+        <section className="dual-selected panel" aria-labelledby="selected-title">
+          <div className="dual-section-heading">
+            <p className="section-kicker">Selected work</p>
+            <h2 id="selected-title">Where strategy<br />meets <em>execution.</em></h2>
+            <p>Products selected for their portfolio weight, technical depth, product thinking, and evidence of sustained execution.</p>
           </div>
 
-          <article className="lead-work">
-            <div className="lead-work-mark" aria-hidden="true"><span>BL</span><small>DAETO / BUILD STUDIO</small></div>
-            <div className="lead-work-copy">
-              <p className="section-kicker">Lead project / Founder</p>
-              <h3>{blindspotLab.name}</h3>
-              <p>{blindspotLab.description}</p>
-              {blindspotLab.snapshot && <p className="project-fact">{blindspotLab.snapshot}</p>}
-              {blindspotLab.portfolioValue && <p className="lead-value">{blindspotLab.portfolioValue}</p>}
-              <div className="route-card__links">
-                <WorkLink project={blindspotLab} label="Visit BlindspotLab" />
-                <ProfileLink project={blindspotLab} />
-              </div>
-            </div>
-          </article>
+          <div className="dual-work-grid">
+            <SelectedProjectCard project={blindspotLab} />
+            <SelectedProjectCard project={stackBrief} dark />
+          </div>
 
-          <div className="featured-work">
-            {[arcapush, stackBrief].map((project, index) => (
-              <article className={`feature-work${index === 1 ? " feature-work--offset" : ""}`} key={project.slug}>
-                <ProjectVisual project={project} index={index} />
+          <div className="dual-project-list" aria-label="Additional selected projects">
+            {projectPreview.map((project, index) => (
+              <article className="dual-project-row" key={project.slug}>
+                <span>{String(index + 3).padStart(2, "0")}</span>
                 <div>
                   <p className="section-kicker">{prettyCategory(project.category[0])} / {displayProjectStatus(project)}</p>
                   <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  {project.snapshot && <p className="project-fact">{project.snapshot}</p>}
-                  <div className="route-card__links">
-                    <WorkLink project={project} />
-                    <ProfileLink project={project} />
-                  </div>
-                  {project.sourceUrl && <a className="secondary-link" href={project.sourceUrl} target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>}
-                  {project.packageUrl && <a className="secondary-link" href={project.packageUrl} target="_blank" rel="noopener noreferrer">npm &#8599;</a>}
                 </div>
+                <p>{project.description}</p>
+                <Link href={`/projects/${project.slug}`} aria-label={`Read ${project.name} project profile`}>&#8599;</Link>
               </article>
             ))}
           </div>
 
-          <div className="compact-work-grid">
-            {compactWork.map((project, index) => <CompactWork key={project.slug} project={project} index={index + 2} />)}
+          <Link className="dual-section-link" href="/work">Explore all selected work <span aria-hidden="true">&#8594;</span></Link>
+        </section>
+
+        <section className="dual-capabilities panel" aria-labelledby="capabilities-title">
+          <div className="dual-section-heading">
+            <p className="section-kicker">Capabilities</p>
+            <h2 id="capabilities-title">Two disciplines.<br /><em>One product practice.</em></h2>
+          </div>
+
+          <div className="capability-track capability-track--strategy">
+            <div className="capability-track__heading"><span>01</span><h3>Product strategy</h3></div>
+            {strategyCapabilities.map(([title, copy]) => <article key={title}><h4>{title}</h4><p>{copy}</p></article>)}
+          </div>
+
+          <div className="capability-track capability-track--engineering">
+            <div className="capability-track__heading"><span>02</span><h3>Engineering</h3></div>
+            {engineeringCapabilities.map(([title, copy]) => <article key={title}><h4>{title}</h4><p>{copy}</p></article>)}
           </div>
         </section>
 
-        <section className="proof-section panel" aria-labelledby="proof-title">
-          <div className="proof-intro">
-            <p className="section-kicker">04 / Proof</p>
+        <section className="dual-proof panel" aria-labelledby="proof-title">
+          <div>
+            <p className="section-kicker">Evidence</p>
             <h2 id="proof-title">The work<br /><em>compounds.</em></h2>
           </div>
-          <div className="milestone-list">
+          <div className="dual-milestones">
             {milestones.map(([number, label]) => <article key={number}><strong>{number}</strong><p>{label}</p></article>)}
           </div>
         </section>
 
-        <section id="projects" className="archive-section panel" aria-labelledby="archive-title">
-          <div className="section-heading archive-heading">
-            <p className="section-kicker">05 / Complete project index</p>
-            <h2 id="archive-title">The complete<br /><em>build record.</em></h2>
-            <p>Major products, experiments, paused systems and cultural builds — each with its confirmed status and public destination where one exists.</p>
+        <section className="dual-principles panel" aria-labelledby="principles-title">
+          <div className="dual-section-heading">
+            <p className="section-kicker">Product philosophy</p>
+            <h2 id="principles-title">The smallest<br /><em>strong move.</em></h2>
+            <p>Clear thinking, intentional systems, and evidence-led improvement over unnecessary complexity.</p>
           </div>
-          <ProjectArchive />
+          <div className="dual-principle-list">
+            {principles.map(([title, copy], index) => (
+              <article key={title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+          <Link className="dual-section-link" href="/approach">Read the DAETO approach <span aria-hidden="true">&#8594;</span></Link>
         </section>
 
-        <section id="approach" className="thoughts-section panel" aria-labelledby="thoughts-title">
-          <div className="section-heading">
-            <p className="section-kicker">06 / Thoughts</p>
-            <h2 id="thoughts-title">Product<br /><em>philosophy.</em></h2>
-          </div>
-          <div className="section-illustration section-illustration--prompt" aria-hidden="true"><span /><span /></div>
-          <div className="thought-list">
-            {thoughts.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}
-          </div>
+        <section className="dual-projects-cta panel" aria-labelledby="projects-cta-title">
+          <p className="section-kicker">Complete build record</p>
+          <h2 id="projects-cta-title">40+ products,<br />tools, experiments,<br />and <em>shipped ideas.</em></h2>
+          <p>The complete project index preserves confirmed live links, project statuses, paused work, experiments, cultural builds, and selected project profiles without inventing missing details.</p>
+          <Link href="/projects">Browse all projects <span aria-hidden="true">&#8599;</span></Link>
         </section>
 
-        <section id="contact" className="contact-section" aria-labelledby="contact-title">
-          <p className="section-kicker">07 / Contact</p>
-          <h2 id="contact-title">Let&apos;s build<br />something<br /><em>useful.</em></h2>
-          <div className="contact-bottom">
-            <p>Have a useful idea that needs sharper thinking, stronger systems and disciplined execution?</p>
+        <section className="dual-contact" aria-labelledby="contact-title">
+          <p className="section-kicker">Contact</p>
+          <h2 id="contact-title">Have a useful idea?<br /><em>Let&apos;s make it real.</em></h2>
+          <div>
+            <p>For AI product engineering, system architecture, product strategy, and selected consulting work.</p>
             <a href="mailto:hello@mojeeb.xyz">hello@mojeeb.xyz <ExternalArrow /></a>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div className="footer-title"><span>Mojeeb</span><strong>AI Product Engineer<br />System Architect</strong></div>
+        <div className="footer-title"><span>Mojeeb</span><strong>Product Strategist<br />AI Product Engineer</strong></div>
         <nav aria-label="Footer navigation"><Link href="/">Home</Link><Link href="/work">Selected Work</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/approach">Approach</Link><Link href="/contact">Contact</Link></nav>
         <div className="footer-socials"><a href="https://x.com/MojeebMotion" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.linkedin.com/in/tmojeeb" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/mojeebdev" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://devpost.com/mojeebdev" target="_blank" rel="noopener noreferrer">Devpost</a></div>
         <p>&copy; {new Date().getFullYear()} Mojeeb Titilayo</p>
