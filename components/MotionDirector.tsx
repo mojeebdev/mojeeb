@@ -10,7 +10,6 @@ type ViewTransitionDocument = Document & {
 };
 
 const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
-const EASE_SOFT = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 function animateElement(
   element: Element | null,
@@ -31,13 +30,12 @@ function animateElement(
 
 function animateHero() {
   const nav = document.querySelector(".floating-nav");
-  const titleLines = Array.from(document.querySelectorAll(".heroTitleLine"));
-  const portrait = document.querySelector(".hero-portrait");
-  const name = document.querySelector(".hero-name");
-  const role = document.querySelector(".hero-role");
-  const location = document.querySelector(".hero-location");
-  const meta = document.querySelector(".hero-meta");
-  const orbit = document.querySelector(".hero-object--orbit");
+  const strategyLine = document.querySelector(".identity-line--strategy");
+  const engineeringLine = document.querySelector(".identity-line--engineering");
+  const portrait = document.querySelector(".dual-portrait");
+  const kickers = Array.from(document.querySelectorAll(".identity-kicker"));
+  const summaries = Array.from(document.querySelectorAll(".identity-summary"));
+  const meta = document.querySelector(".identity-meta");
 
   animateElement(
     nav,
@@ -45,75 +43,61 @@ function animateHero() {
       { opacity: 0, clipPath: "inset(0 0 100% 0)", translate: "0 -18px" },
       { opacity: 1, clipPath: "inset(0 0 0% 0)", translate: "0 0" },
     ],
-    { duration: 680, easing: EASE_OUT },
+    { duration: 620, easing: EASE_OUT },
   );
 
-  [name, role].forEach((element, index) => {
-    animateElement(
-      element,
-      [
-        { opacity: 0, translate: index === 0 ? "-24px 0" : "24px 0" },
-        { opacity: 1, translate: "0 0" },
-      ],
-      { duration: 720, delay: 150 + index * 65, easing: EASE_OUT },
-    );
-  });
+  animateElement(
+    strategyLine,
+    [
+      { opacity: 0, clipPath: "inset(0 100% 0 0)", transform: "translateX(-54px)" },
+      { opacity: 1, clipPath: "inset(0 0% 0 0)", transform: "translateX(0)" },
+    ],
+    { duration: 920, delay: 140, easing: EASE_OUT },
+  );
+
+  animateElement(
+    engineeringLine,
+    [
+      { opacity: 0, clipPath: "inset(0 0 0 100%)", transform: "translateX(54px)" },
+      { opacity: 1, clipPath: "inset(0 0 0 0%)", transform: "translateX(0)" },
+    ],
+    { duration: 920, delay: 220, easing: EASE_OUT },
+  );
 
   animateElement(
     portrait,
     [
-      { opacity: 0, clipPath: "inset(100% 0 0 0)", scale: 1.08 },
-      { opacity: 1, clipPath: "inset(0% 0 0 0)", scale: 1 },
+      { opacity: 0, clipPath: "inset(100% 0 0 0 round 999px 999px 0 0)", scale: .94 },
+      { opacity: 1, clipPath: "inset(0% 0 0 0 round 999px 999px 0 0)", scale: 1 },
     ],
-    { duration: 1120, delay: 190, easing: EASE_OUT },
+    { duration: 1120, delay: 300, easing: EASE_OUT },
   );
 
-  titleLines.forEach((line, index) => {
-    animateElement(
-      line,
-      [
-        { opacity: 0, clipPath: "inset(0 0 100% 0)", transform: "translateY(70px)" },
-        { opacity: 1, clipPath: "inset(0 0 0% 0)", transform: "translateY(0)" },
-      ],
-      { duration: 900, delay: 320 + index * 105, easing: EASE_OUT },
-    );
-  });
-
-  animateElement(
-    orbit,
-    [
-      { opacity: 0, scale: 0.72, rotate: "-16deg" },
-      { opacity: 0.32, scale: 1, rotate: "0deg" },
-    ],
-    { duration: 950, delay: 600, easing: EASE_SOFT },
-  );
-
-  [meta, location].forEach((element, index) => {
+  [...kickers, ...summaries, meta].forEach((element, index) => {
     animateElement(
       element,
       [
-        { opacity: 0, translate: "0 14px" },
+        { opacity: 0, translate: "0 18px" },
         { opacity: 1, translate: "0 0" },
       ],
-      { duration: 620, delay: 680 + index * 70, easing: EASE_OUT },
+      { duration: 620, delay: 520 + index * 55, easing: EASE_OUT },
     );
   });
 }
 
 function setupScrollReveals() {
   const selector = [
-    ".intro-copy",
-    ".intro-side",
-    ".section-heading",
-    ".capability-list article",
-    ".lead-work",
-    ".feature-work",
-    ".compact-work",
-    ".milestone-list article",
-    ".archive-group-heading",
-    ".project-row",
-    ".thought-list article",
-    ".contact-section > *",
+    ".identity-proof > *",
+    ".dual-section-heading > *",
+    ".dual-work-card",
+    ".dual-project-row",
+    ".capability-track",
+    ".capability-track article",
+    ".dual-proof > *",
+    ".dual-milestones article",
+    ".dual-principle-list article",
+    ".dual-projects-cta > *",
+    ".dual-contact > *",
     ".route-hero > *",
     ".route-band > *",
     ".route-card",
@@ -134,14 +118,14 @@ function setupScrollReveals() {
           ? Array.from(element.parentElement.children).filter((child) => child.matches(selector))
           : [];
         const index = Math.max(0, siblings.indexOf(element));
-        const distance = element.classList.contains("project-row") ? 18 : 34;
+        const compact = element.classList.contains("dual-project-row") || element.matches(".capability-track article");
 
         animateElement(
           element,
           [
             {
               opacity: 0,
-              transform: `translateY(${distance}px)`,
+              transform: `translateY(${compact ? 18 : 34}px)`,
               clipPath: "inset(0 0 10% 0)",
             },
             {
@@ -151,8 +135,8 @@ function setupScrollReveals() {
             },
           ],
           {
-            duration: element.classList.contains("project-row") ? 520 : 760,
-            delay: Math.min(index, 4) * 65,
+            duration: compact ? 520 : 760,
+            delay: Math.min(index, 4) * 55,
             easing: EASE_OUT,
           },
         );
@@ -160,7 +144,7 @@ function setupScrollReveals() {
         observer.unobserve(element);
       });
     },
-    { rootMargin: "0px 0px -9% 0px", threshold: 0.12 },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
   );
 
   targets.forEach((target) => observer.observe(target));
@@ -168,12 +152,10 @@ function setupScrollReveals() {
 }
 
 function setupHeroParallax() {
-  const hero = document.querySelector<HTMLElement>(".poster-hero");
-  const title = document.querySelector<HTMLElement>(".heroTitle");
-  const portrait = document.querySelector<HTMLElement>(".hero-portrait");
-  const orbit = document.querySelector<HTMLElement>(".hero-object--orbit");
+  const hero = document.querySelector<HTMLElement>(".dual-identity-hero");
+  const portrait = document.querySelector<HTMLElement>(".dual-portrait");
 
-  if (!hero || !title || !portrait || window.innerWidth < 1024) return () => undefined;
+  if (!hero || !portrait || window.innerWidth < 900) return () => undefined;
 
   let frame = 0;
   let pointerX = 0;
@@ -182,13 +164,8 @@ function setupHeroParallax() {
   const render = () => {
     frame = 0;
     const scrollProgress = Math.min(1, Math.max(0, window.scrollY / Math.max(hero.offsetHeight, 1)));
-
-    title.style.setProperty("--motion-title-x", `${pointerX * -5}px`);
-    title.style.setProperty("--motion-title-y", `${scrollProgress * 22 + pointerY * -3}px`);
-    portrait.style.setProperty("--motion-portrait-x", `${pointerX * 9}px`);
-    portrait.style.setProperty("--motion-portrait-y", `${scrollProgress * 44 + pointerY * 7}px`);
-    orbit?.style.setProperty("--motion-orbit-x", `${pointerX * 13}px`);
-    orbit?.style.setProperty("--motion-orbit-y", `${pointerY * 10}px`);
+    portrait.style.setProperty("--dual-portrait-x", `${pointerX * 8}px`);
+    portrait.style.setProperty("--dual-portrait-y", `${scrollProgress * 34 + pointerY * 5}px`);
   };
 
   const requestRender = () => {
@@ -197,8 +174,8 @@ function setupHeroParallax() {
 
   const onPointerMove = (event: PointerEvent) => {
     const rect = hero.getBoundingClientRect();
-    pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-    pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    pointerX = ((event.clientX - rect.left) / rect.width - .5) * 2;
+    pointerY = ((event.clientY - rect.top) / rect.height - .5) * 2;
     requestRender();
   };
 
