@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./portfolio-fixes.css";
-import "./animation-fixes.css";
-import "./hero-final.css";
 import "./motion-system.css";
-import "./intro-final.css";
 import "./dual-identity.css";
 import JsonLd from "@/components/JsonLd";
 import MotionDirector from "@/components/MotionDirector";
