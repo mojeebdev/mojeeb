@@ -16,6 +16,7 @@ export default function ProjectLogo({ project, className = "", size = "md" }: Pr
   const [candidateIndex, setCandidateIndex] = useState(0);
   const activeCandidate = candidates[candidateIndex];
   const classNames = ["project-logo", `project-logo--${size}`, className].filter(Boolean).join(" ");
+  const altText = `${project.name} logo`;
 
   if (!activeCandidate) {
     return (
@@ -26,12 +27,12 @@ export default function ProjectLogo({ project, className = "", size = "md" }: Pr
   }
 
   return (
-    <span className={classNames} aria-hidden="true">
+    <span className={classNames}>
       {/* External project favicons are intentionally loaded without next/image domain config. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={activeCandidate.src}
-        alt=""
+        alt={altText}
         loading="lazy"
         decoding="async"
         onError={() => setCandidateIndex((index) => index + 1)}
