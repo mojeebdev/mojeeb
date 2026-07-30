@@ -1,31 +1,34 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { freightDisplay, jetbrainsMono } from "@/lib/fonts";
-import { personJsonLd, websiteJsonLd } from "@/lib/jsonLd";
+import "./portfolio-fixes.css";
+import "./motion-system.css";
+import "./dual-identity.css";
+import JsonLd from "@/components/JsonLd";
+import MotionDirector from "@/components/MotionDirector";
+import { freightDisplay } from "@/lib/fonts";
+import { siteGraphJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Mojeeb Titilayo | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    default: "Mojeeb Titilayo — Product Strategist & AI Product Engineer",
     template: "%s | Mojeeb Titilayo",
   },
   description:
-    "Mojeeb is an AI Product Engineer, Expert Vibe Coder, and Strategist. I build at the edge of thought. Founder of BlindspotLab. 30+ shipped products including Arcapush, Whate, PullChain, AngelVow, Dearly, RoastURL, FirstTx, and more. Solo. Fast. Real use cases.",
+    "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
   keywords: [
-    "Mojeeb", "Mojeeb Titilayo", "tmojeeb", "tmojeeb",
-    "AI Product Engineer", "Expert Vibe Coder", "Strategist",
-    "BlindspotLab", "Arcapush", "Whate", "AngelVow", "PullChain",
-    "FirstTx", "RoastURL", "ArcaPrompt", "PromptRank", "XUnfollow",
-    "Dearly", "Nigeria Tech", "Prompt Engineering", "LLM Integration",
-    "Solo Founder", "Base Chain", "Next.js",
+    "Mojeeb", "Mojeeb Titilayo", "Product Strategist",
+    "AI Product Engineer", "System Architect", "AI Strategist",
+    "Web3 Strategist", "BlindspotLab", "Arcapush", "StackBrief",
+    "Developer Tools", "Prompt Engineering", "Product Strategy",
+    "MCP", "RAG", "Next.js", "TypeScript",
   ],
-  authors: [{ name: "Mojeeb Titilayo", url: BASE_URL }],
+  authors: [{ name: "Mojeeb Titilayo", url: `${BASE_URL}/about` }],
   creator: "Mojeeb Titilayo",
-  publisher: "BlindspotLab",
-
-  alternates: { canonical: `${BASE_URL}/builds` },
-
+  publisher: "Mojeeb Titilayo",
+  alternates: { canonical: BASE_URL },
+  category: "technology",
   robots: {
     index: true,
     follow: true,
@@ -37,69 +40,51 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "icon", url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" }],
+    icon: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
+    shortcut: [{ url: "/mojeeb_headshot.png", type: "image/png" }],
+    apple: [{ url: "/mojeeb_headshot.png", sizes: "1086x1448", type: "image/png" }],
   },
-
-
   openGraph: {
     type: "profile",
-    url: `${BASE_URL}/builds`,
-    siteName: "Mojeeb",
+    url: BASE_URL,
+    siteName: "Mojeeb Titilayo",
     locale: "en_US",
-    title: "Mojeeb | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    title: "Mojeeb Titilayo — Product Strategist & AI Product Engineer",
     description:
-      "I build at the edge of thought. 30+ shipped AI and Web3 products. Solo. Fast. Real use cases. Founder of BlindspotLab — arcapush.com, whate.app, angelvow.xyz, firsttx.xyz, roasturl.xyz and more.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mojeeb Titilayo" }],
+      "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
+    images: [{ url: "/mojeeb-editorial-og.jpg", width: 1200, height: 630, alt: "Mojeeb Titilayo — Product Strategist and AI Product Engineer" }],
     firstName: "Mojeeb",
     lastName: "Titilayo",
-    username: "tmojeeb",
+    username: "MojeebMotion",
   },
-
-
   twitter: {
     card: "summary_large_image",
-    site: "@tmojeeb",
-    creator: "@tmojeeb",
-    title: "Mojeeb | AI Product Engineer, Expert Vibe Coder, and Strategist",
+    site: "@MojeebMotion",
+    creator: "@MojeebMotion",
+    title: "Mojeeb Titilayo — Product Strategist & AI Product Engineer",
     description:
-      "I build at the edge of thought. 30+ shipped AI and Web3 products. Solo. Fast. Founder of BlindspotLab — arcapush.com, whate.app, roasturl.xyz and more.",
-    images: ["/og-image.png"],
+      "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
+    images: ["/mojeeb-editorial-og.jpg"],
   },
-
-
   manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#E8B84B",
+  themeColor: "#f0ede5",
   width: "device-width",
   initialScale: 1,
 };
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <link rel="author" href={`${BASE_URL}/llms.txt`} type="text/plain" title="LLM context" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <JsonLd data={siteGraphJsonLd} />
       </head>
-      <body className={`${freightDisplay.variable} ${jetbrainsMono.variable}`}>
+      <body className={freightDisplay.variable}>
+        <MotionDirector />
         {children}
       </body>
     </html>

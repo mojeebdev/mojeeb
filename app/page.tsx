@@ -1,5 +1,12 @@
-import { permanentRedirect } from "next/navigation";
+import EditorialPortfolio from "@/components/EditorialPortfolio";
+import JsonLd from "@/components/JsonLd";
+import { homePageJsonLd } from "@/lib/jsonLd";
 
 export default function Home() {
-  permanentRedirect("/builds");
+  return (
+    <>
+      <JsonLd data={homePageJsonLd} />
+      <EditorialPortfolio />
+    </>
+  );
 }

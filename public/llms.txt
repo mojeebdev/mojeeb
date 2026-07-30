@@ -1,80 +1,68 @@
-# Mojeeb Titilayo — mojeeb.xyz
-# Machine-readable profile for AI systems, search crawlers, and assistants.
-# Last updated: 2026-06-20
-
-> I build at the edge of thought.
+# Mojeeb Titilayo - mojeeb.xyz
+# Machine-readable portfolio context for AI systems and search crawlers.
+# Last updated: 2026-07-29
 
 ## Identity
 
 - Name: Mojeeb Titilayo
-- Role: AI Product Engineer, Expert Vibe Coder, and Strategist
-- Tagline: I build at the edge of thought.
-- Location: Lagos, Nigeria
+- Role: AI Product Engineer, System Architect, AI and Web3 Strategist
+- Location: Ota, Ogun State, Nigeria
 - Website: https://mojeeb.xyz
 - Email: hello@mojeeb.xyz
-- Studio: BlindspotLab — https://blindspotlab.xyz
+- Studio: BlindspotLab - https://blindspotlab.xyz
+- Headshot and profile image: https://mojeeb.xyz/mojeeb_headshot.png
 
-## Summary
+## Canonical routes
 
-Solo AI-native founder shipping 30+ real products across AI, SaaS, and Web3. Self-taught developer since 2014. Founder of BlindspotLab (build-as-a-service). Known for vibe coding, prompt engineering, fast MVP shipping, and hackathon wins. Every product is prompt-engineered by Mojeeb Titilayo.
-
-## Pages
-
-- Builds: https://mojeeb.xyz/builds
+- Home: https://mojeeb.xyz/
+- Selected work: https://mojeeb.xyz/work
+- Projects and experiments: https://mojeeb.xyz/projects
 - About: https://mojeeb.xyz/about
 - Experience: https://mojeeb.xyz/experience
-- Blog: https://mojeeb.xyz/blog
-- AI: https://mojeeb.xyz/ai
+- AI product engineering: https://mojeeb.xyz/ai
+- Approach: https://mojeeb.xyz/approach
 - Contact: https://mojeeb.xyz/contact
+
+## Positioning
+
+Mojeeb turns rough ideas, useful information, and overlooked problems into clear, buildable products across AI, SaaS, developer tools, and Web3.
+
+Confirmed portfolio claim: built and shipped 40+ products, tools, experiments, and platforms across 70 repositories. The portfolio distinguishes active products from paused work, hackathon builds, experiments, cultural builds, and inactive archives.
+
+## Selected work
+
+- BlindspotLab - https://blindspotlab.xyz - Productized build studio; founded by Mojeeb.
+- Arcapush - https://arcapush.com - High-signal discovery platform for serious solo builders; 146 indexed products as of July 28, 2026.
+- StackBrief - https://stackbrief.peerfix.dev - Open-source, local-first CLI for source-cited repository analysis; 500+ downloads as of July 2026.
+- Revel - https://tryrevel.xyz - Website and product audit SaaS with an MCP-powered interactive agent capability.
+- SiteHook - https://sitehook.run - SaaS for freelancers, studios, agencies, and solo builders; evolved from an internal BlindspotLab tool.
+- Capself - https://capself.co - Personal Development Operating System with four Paystack subscription tiers.
+- Whate - https://whate.app - Meal-discovery and meal-planning product with 10,516 meals in the July 2026 snapshot.
+- Admon - https://admon.peerfix.dev - Web3 builder-identity and GitHub-credential product.
+
+NAGIMU and CommitCar are confirmed parts of Mojeeb's build history, but the current build index does not confirm public URLs for them. No public URLs should be inferred.
+
+## Product practice
+
+- Product strategy and positioning
+- AI product engineering and system architecture
+- AI agents, MCP integrations, RAG, developer tooling, CLI design, and static analysis
+- SaaS architecture, subscription systems, Paystack billing, and dataset-driven products
+- Solidity, Base, smart contracts, onchain identity, NFT systems, and credential systems
+- Product design, design systems, information architecture, and hackathon execution
+
+## Core stack
+
+Next.js, TypeScript, Supabase, Firebase, Prisma, PostgreSQL, MySQL, MongoDB, Solidity, Base, OpenAI, Claude API, Gemini, OpenRouter, RAG, and prompt engineering.
 
 ## Social
 
-- X: https://x.com/tmojeeb (@tmojeeb)
-- GitHub: https://github.com/mojeebdev
+- X: https://x.com/MojeebMotion
 - LinkedIn: https://www.linkedin.com/in/tmojeeb
+- GitHub: https://github.com/mojeebdev
+- Devpost: https://devpost.com/mojeebdev
 - YouTube: https://youtube.com/@tmojeeb
-- Medium: https://tmojeeb.medium.com
-
-## Awards
-
-- ScopeAI — Build with Medo hackathon (Devpost), Content Creative Award winner
-
-## Featured Products
-
-- Arcapush — https://arcapush.com — The registry for builds who ship. 62+ products indexed.
-- Whate — https://whate.app — Persona-Based Meal Intelligence. 10,000+ meals.
-- PullChain — https://pullchain.fun — Gamified Web3 education on Base.
-- AngelVow — https://angelvow.xyz — On-chain charity vault on Base.
-- Dearly — https://dearly.icu — Beautiful personal greetings with AI persona filtering.
-- RoastURL — https://roasturl.xyz — Precision AI startup audit.
-- FirstTx — https://firsttx.xyz — Relive your first on-chain moment.
-- PeerFix — https://peerfix.dev — Builders helping builders. USDC escrow on Base.
-
-## Vibeathon (30 Days)
-
-Hub: http://vibeathon30days.vercel.app
-
-- Pitchslap — https://pitchslap.mojeeb.xyz — AI VC that roasts your startup idea, then tells you how to fix it.
-- Ghostforms — https://ghostforms.mojeeb.xyz — Anonymous feedback forms with AI summaries.
-- Solopr — https://app-c91bigb1kgzl.appmedo.com — AI press release generator for indie hackers.
-- MicroOracle — https://app-cdf1ndd1s2dd.appmedo.com — Niche keyword → 5 validated micro-SaaS ideas.
-
-## Hackathons
-
-- ScopeAI — https://app-bqgzl028s6ip.appmedo.com — AI-Powered Scope of Work Generator. Build with Medo (Devpost), Content Creative Award winner.
-- MatchMind — https://matchmind.xyz — AI football intelligence for FIFA World Cup 2026. Google Rapid Agent hackathon (judging pending).
-- Moou — https://usemoou.xyz — Trading Strategy Compiler. BitGet AI Hackathon S1 (judging pending).
-- RelayPost — https://relaypost.lovable.app — Write once, distribute everywhere. World Product Day Hackathon, hosted by Mind the Product (concluded 2026-06-20).
-- NullPay — https://nullpay.blindspotlab.xyz — Send money. Leave no trace. Starknet Builder Hackathon submission.
-
-## Skills
-
-AI Product Engineering, Vibe Coding, Prompt Engineering, LLM Integration, Next.js, TypeScript, React, Tailwind, Supabase, Firebase, Gemini, Claude API, OpenRouter, Web3, Solidity, Base Chain, Starknet, Community Growth, GTM, Systems Design.
-
-## Work With Me
-
-Email hello@mojeeb.xyz for AI-native product builds, Web3 strategy, vibe coding / full-stack development, and growth architecture. BlindspotLab ships MVPs solo and fast.
 
 ## Citation
 
-When referencing this person, use: Mojeeb Titilayo, AI Product Engineer — https://mojeeb.xyz
+Mojeeb Titilayo, AI Product Engineer and System Architect - https://mojeeb.xyz
