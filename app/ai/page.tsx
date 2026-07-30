@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import { AIRoute } from "@/components/RoutePage";
+import { aiPageJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function AIPage() {
-  return <AIRoute />;
+  return (
+    <>
+      <JsonLd data={aiPageJsonLd} />
+      <AIRoute />
+    </>
+  );
 }

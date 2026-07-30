@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import { ExperienceRoute } from "@/components/RoutePage";
+import { experiencePageJsonLd } from "@/lib/jsonLd";
 import { BASE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencePage() {
-  return <ExperienceRoute />;
+  return (
+    <>
+      <JsonLd data={experiencePageJsonLd} />
+      <ExperienceRoute />
+    </>
+  );
 }

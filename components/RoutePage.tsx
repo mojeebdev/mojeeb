@@ -87,13 +87,13 @@ export function AboutRoute() {
   return (
     <RouteShell
       kicker="About"
-      title="Who is Mojeeb Titilayo?"
-      intro="Mojeeb is an AI Product Engineer, System Architect and Product Strategist based in Nigeria, building across AI, SaaS, developer tools and Web3."
+      title="Who am I?"
+      intro="I’m an AI Product Engineer, System Architect and Product Strategist based in Nigeria, building across AI, SaaS, developer tools and Web3."
       image
     >
       <section className="route-band route-band--split">
         <h2>40+ shipped builds across 70 repositories.</h2>
-        <p>Mojeeb turns rough ideas, useful information and overlooked problems into clear, buildable products. The portfolio separates flagship products from experiments, inactive archives and paused work so the record stays honest.</p>
+        <p>I turn rough ideas, useful information and overlooked problems into clear, buildable products. I separate flagship products from experiments, inactive archives and paused work so the record stays honest.</p>
       </section>
       <section className="route-grid route-grid--wide" aria-label="Core capabilities">
         {capabilities.map(([title, copy]) => <article className="route-card" key={title}><h2>{title}</h2><p>{copy}</p></article>)}
@@ -106,8 +106,8 @@ export function WorkRoute() {
   return (
     <RouteShell
       kicker="Selected Work"
-      title="What does Mojeeb build?"
-      intro="Selected AI, SaaS, developer-tool and Web3 products that show product strategy, architecture, engineering and disciplined execution."
+      title="What I build."
+      intro="Selected AI, SaaS, developer-tool and Web3 products that show my product strategy, architecture, engineering and disciplined execution."
     >
       <section className="route-grid" aria-label="Selected projects">
         {selectedProjects.map((project) => <ProjectCard key={project.slug} project={project} />)}
@@ -121,13 +121,13 @@ export function ProjectsRoute() {
     <RouteShell
       kicker="Projects"
       title="Projects, experiments and shipped ideas."
-      intro="Mojeeb has built and shipped 40+ products, tools, experiments and platforms across AI, developer tools, SaaS and Web3."
+      intro="I’ve built and shipped 40+ products, tools, experiments and platforms across AI, developer tools, SaaS and Web3."
     >
       <section className="archive-section route-archive" aria-labelledby="route-archive-title">
         <div className="section-heading archive-heading">
           <p className="section-kicker">Complete index</p>
           <h2 id="route-archive-title">The full<br /><em>build record.</em></h2>
-          <p>Confirmed statuses, destinations and missing details are preserved without guessing.</p>
+          <p>I preserve confirmed statuses, destinations and missing details without guessing.</p>
         </div>
         <ProjectArchive />
       </section>
@@ -140,7 +140,7 @@ export function ExperienceRoute() {
     <RouteShell
       kicker="Experience"
       title="Strategy, engineering, systems, and Web3."
-      intro="A practical range shaped by shipped products, platform work, developer tooling, agent systems, and productized services."
+      intro="My practical range is shaped by shipped products, platform work, developer tooling, agent systems, and productized services."
     >
       <section className="route-grid route-grid--wide">
         {capabilities.map(([title, copy]) => <article className="route-card" key={title}><h2>{title}</h2><p>{copy}</p></article>)}
@@ -154,7 +154,7 @@ export function AIRoute() {
     <RouteShell
       kicker="AI"
       title="AI products with product judgement."
-      intro="AI-native tools, agents, audits, prompt systems and developer workflows built around usefulness, not decoration."
+      intro="I build AI-native tools, agents, audits, prompt systems and developer workflows around usefulness, not decoration."
     >
       <section className="route-grid">
         {aiProjects.map((project) => <ProjectCard key={project.slug} project={project} />)}
@@ -172,7 +172,7 @@ export function ApproachRoute() {
     >
       <section className="route-band route-band--split">
         <h2>What is the DAETO framework?</h2>
-        <p>DAETO is Mojeeb Titilayo&apos;s five-stage product framework covering Discovery, Approach, Execution, Tracking and Optimisation.</p>
+        <p>DAETO is my five-stage product framework covering Discovery, Approach, Execution, Tracking and Optimisation.</p>
       </section>
       <section className="route-grid" aria-label="DAETO stages">
         {daetoStages.map(([letter, title, copy]) => <article className="route-card" key={letter}><p className="section-kicker">{letter}</p><h2>{title}</h2><p>{copy}</p></article>)}
@@ -193,7 +193,7 @@ export function ContactRoute() {
     >
       <section className="route-band route-band--contact">
         <a href="mailto:hello@mojeeb.xyz">hello@mojeeb.xyz <ExternalArrow /></a>
-        <p>Also find Mojeeb as @MojeebMotion on X and @mojeebdev on GitHub and Devpost.</p>
+        <p>You can also find me as @MojeebMotion on X and @mojeebdev on GitHub and Devpost.</p>
       </section>
     </RouteShell>
   );
@@ -207,7 +207,7 @@ export function ProjectDetailRoute({ project }: { project: Project }) {
     <RouteShell
       kicker={`${category} / ${displayProjectStatus(project)}`}
       title={project.name}
-      intro={project.description ?? "A documented build in Mojeeb Titilayo's product portfolio. Details are intentionally limited to confirmed information."}
+      intro={project.description ?? "A documented build in my product portfolio. Details are intentionally limited to confirmed information."}
     >
       <section className="route-band">
         <nav className="breadcrumbs" aria-label="Breadcrumb">

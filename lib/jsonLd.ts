@@ -7,6 +7,7 @@ const ORGANIZATION_ID = "https://blindspotlab.xyz/#organization";
 const HOME_ID = `${BASE_URL}/#webpage`;
 
 const publicProjects = projects.filter((project) => project.url);
+const aiPageProjects = projects.filter((project) => project.category.includes("ai") && (project.selected || project.url)).slice(0, 10);
 
 const categoryName = (category: string) => ({
   "developer-tools": "Developer Tool",
@@ -35,7 +36,7 @@ const personEntity = {
     caption: "Mojeeb Titilayo",
   },
   jobTitle: ["AI Product Engineer", "System Architect", "Product Strategist"],
-  description: "AI Product Engineer, System Architect and Product Strategist building intentional products across AI, SaaS, developer tools and Web3.",
+  description: "Mojeeb Titilayo is an AI Product Engineer, System Architect and Product Strategist building intentional products across AI, SaaS, developer tools and Web3.",
   nationality: { "@type": "Country", name: "Nigeria" },
   homeLocation: { "@type": "Place", name: "Ota, Nigeria" },
   worksFor: { "@id": ORGANIZATION_ID },
@@ -253,6 +254,51 @@ export const contactPageJsonLd = {
       inLanguage: "en",
     },
     { "@id": `${BASE_URL}/contact#breadcrumb`, ...breadcrumb([["Home", ""], ["Contact", "/contact"]]) },
+  ],
+};
+
+export const aiPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${BASE_URL}/ai#webpage`,
+      url: `${BASE_URL}/ai`,
+      name: "AI Product Engineering by Mojeeb Titilayo",
+      description: "Mojeeb Titilayo's AI product engineering work across agents, SaaS, audits, prompt systems and developer workflows.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": PERSON_ID },
+      mainEntity: { "@id": `${BASE_URL}/ai#itemlist` },
+      breadcrumb: { "@id": `${BASE_URL}/ai#breadcrumb` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${BASE_URL}/ai#itemlist`,
+      name: "AI products by Mojeeb Titilayo",
+      numberOfItems: aiPageProjects.length,
+      itemListElement: aiPageProjects.map(projectListItem),
+    },
+    { "@id": `${BASE_URL}/ai#breadcrumb`, ...breadcrumb([["Home", ""], ["AI", "/ai"]]) },
+  ],
+};
+
+export const experiencePageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${BASE_URL}/experience#webpage`,
+      url: `${BASE_URL}/experience`,
+      name: "Experience of Mojeeb Titilayo",
+      description: "Mojeeb Titilayo's product strategy, AI engineering, system architecture and Web3 product experience.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": PERSON_ID },
+      mainEntity: { "@id": PERSON_ID },
+      breadcrumb: { "@id": `${BASE_URL}/experience#breadcrumb` },
+      inLanguage: "en",
+    },
+    { "@id": `${BASE_URL}/experience#breadcrumb`, ...breadcrumb([["Home", ""], ["Experience", "/experience"]]) },
   ],
 };
 

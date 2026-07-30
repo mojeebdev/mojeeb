@@ -140,13 +140,13 @@ export default function EditorialPortfolio() {
 
         <section className="identity-proof panel" aria-labelledby="identity-proof-title">
           <div>
-            <p className="section-kicker">Who is Mojeeb Titilayo?</p>
+            <p className="section-kicker">Who am I?</p>
             <h2 id="identity-proof-title">Strategy before execution.<br /><em>Systems before noise.</em></h2>
           </div>
           <div className="identity-proof__answer">
-            <p>Mojeeb Titilayo is an AI Product Engineer, System Architect, and Product Strategist based in Nigeria. He turns rough ideas, useful information, and overlooked problems into clear, buildable products across AI, SaaS, developer tools, and Web3.</p>
-            <p>His work combines product judgement with hands-on engineering: understanding what should be built, designing the system behind it, and shipping the smallest strong version.</p>
-            <Link className="solid-link" href="/about">More about Mojeeb <span aria-hidden="true">&#8599;</span></Link>
+            <p>I’m an AI Product Engineer, System Architect, and Product Strategist based in Nigeria. I turn rough ideas, useful information, and overlooked problems into clear, buildable products across AI, SaaS, developer tools, and Web3.</p>
+            <p>My work combines product judgement with hands-on engineering: understanding what should be built, designing the system behind it, and shipping the smallest strong version.</p>
+            <Link className="solid-link" href="/about">More about me <span aria-hidden="true">&#8599;</span></Link>
           </div>
         </section>
 
@@ -154,7 +154,7 @@ export default function EditorialPortfolio() {
           <div className="dual-section-heading">
             <p className="section-kicker">Selected work</p>
             <h2 id="selected-title">Where strategy<br />meets <em>execution.</em></h2>
-            <p>Products selected for their portfolio weight, technical depth, product thinking, and evidence of sustained execution.</p>
+            <p>I selected these products for their portfolio weight, technical depth, product thinking, and evidence of sustained execution.</p>
           </div>
 
           <div className="dual-work-grid">
@@ -204,7 +204,7 @@ export default function EditorialPortfolio() {
         <section className="dual-proof panel" aria-labelledby="proof-title">
           <div>
             <p className="section-kicker">Evidence</p>
-            <h2 id="proof-title">The work<br /><em>compounds.</em></h2>
+            <h2 id="proof-title">My work<br /><em>compounds.</em></h2>
           </div>
           <div className="dual-milestones">
             {milestones.map(([number, label]) => <article key={number}><strong>{number}</strong><p>{label}</p></article>)}
@@ -226,13 +226,13 @@ export default function EditorialPortfolio() {
               </article>
             ))}
           </div>
-          <Link className="dual-section-link" href="/approach">Read the DAETO approach <span aria-hidden="true">&#8594;</span></Link>
+          <Link className="dual-section-link" href="/approach">Read my DAETO approach <span aria-hidden="true">&#8594;</span></Link>
         </section>
 
         <section className="dual-projects-cta panel" aria-labelledby="projects-cta-title">
           <p className="section-kicker">Complete build record</p>
           <h2 id="projects-cta-title">40+ products,<br />tools, experiments,<br />and <em>shipped ideas.</em></h2>
-          <p>The complete project index preserves confirmed live links, project statuses, paused work, experiments, cultural builds, and selected project profiles without inventing missing details.</p>
+          <p>My complete project index preserves confirmed live links, project statuses, paused work, experiments, cultural builds, and selected project profiles without inventing missing details.</p>
           <Link href="/projects">Browse all projects <span aria-hidden="true">&#8599;</span></Link>
         </section>
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Mojeeb Titilayo",
   },
   description:
-    "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
+    "Mojeeb Titilayo is a Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
   keywords: [
     "Mojeeb", "Mojeeb Titilayo", "Product Strategist",
     "AI Product Engineer", "System Architect", "AI Strategist",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "Mojeeb Titilayo — Product Strategist & AI Product Engineer",
     description:
-      "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
+      "Mojeeb Titilayo is a Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
     images: [{ url: "/mojeeb-editorial-og.jpg", width: 1200, height: 630, alt: "Mojeeb Titilayo — Product Strategist and AI Product Engineer" }],
     firstName: "Mojeeb",
     lastName: "Titilayo",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     creator: "@MojeebMotion",
     title: "Mojeeb Titilayo — Product Strategist & AI Product Engineer",
     description:
-      "Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
+      "Mojeeb Titilayo is a Product Strategist, AI Product Engineer and System Architect building intentional products across AI, SaaS, developer tools and Web3.",
     images: ["/mojeeb-editorial-og.jpg"],
   },
   manifest: "/site.webmanifest",
