@@ -39,7 +39,6 @@ const personEntity = {
   nationality: { "@type": "Country", name: "Nigeria" },
   homeLocation: { "@type": "Place", name: "Ota, Nigeria" },
   worksFor: { "@id": ORGANIZATION_ID },
-  founder: { "@id": ORGANIZATION_ID },
   knowsAbout: [
     "AI product engineering",
     "System architecture",
